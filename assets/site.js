@@ -125,14 +125,29 @@
     }));
   });
 
-  /* about: polaroids scatter on hover (tap on touch) */
+  /* about: polaroids scatter on hover (desktop) / tap to flip through (phone) */
   $$('.scatter').forEach(sc => {
-    const fit = () => { const k = Math.min(1, (sc.parentElement.clientWidth) / 940); sc.style.transform = `scale(${k})`; sc.parentElement.style.height = 560 * k + 'px'; };
+    const cards = $$('.polaroid', sc);
+    const wide = matchMedia('(min-width: 761px)');
+    let order = cards.map((_, i) => cards.length - 1 - i); // top card first
+    const stackLay = () => order.forEach((ci, pos) => { cards[ci].style.zIndex = cards.length - pos; });
+    const fit = () => {
+      const stack = !wide.matches;
+      sc.classList.toggle('stackmode', stack);
+      if (stack) { sc.classList.remove('open'); sc.style.transform = ''; sc.parentElement.style.height = ''; stackLay(); return; }
+      cards.forEach(c => c.style.zIndex = '');
+      const k = Math.min(1, (sc.parentElement.clientWidth) / 940); sc.style.transform = `scale(${k})`; sc.parentElement.style.height = 560 * k + 'px';
+    };
     fit(); addEventListener('resize', fit);
-    sc.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') sc.classList.add('open'); });
-    sc.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') sc.classList.remove('open'); });
-    sc.addEventListener('click', () => { if (!fine) sc.classList.toggle('open'); });
-    sc.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sc.classList.toggle('open'); } });
+    sc.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse' && wide.matches) sc.classList.add('open'); });
+    sc.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && wide.matches) sc.classList.remove('open'); });
+    const next = () => {
+      const top = cards[order[0]];
+      if (!reduce) top.classList.add('toss');
+      setTimeout(() => { order.push(order.shift()); top.classList.remove('toss'); stackLay(); }, reduce ? 0 : 300);
+    };
+    sc.addEventListener('click', () => { if (sc.classList.contains('stackmode')) next(); else if (!fine) sc.classList.toggle('open'); });
+    sc.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sc.classList.contains('stackmode') ? next() : sc.classList.toggle('open'); } });
   });
 
   /* case study: contents sidebar */

@@ -282,3 +282,18 @@ svg[viewBox="0 0 256 256"]{display:inline-block;vertical-align:-.18em;margin-rig
 .ch{padding:.12em .18em;margin:-.12em -.18em}
 /* phone nav: links only */
 @media(max-width:760px){nav.top .logo,nav.top .pill{display:none}nav.top{justify-content:center}.links{gap:32px;font-size:15px}}
+
+/* phone layout, following the Framer phone version */
+.scatter.stackmode{width:250px;height:310px;transform:none;cursor:pointer}
+.scatter.stackmode .polaroid{transition:transform .35s cubic-bezier(.3,1.2,.5,1)}
+.scatter.stackmode .polaroid.toss{transform:translate(120%,-8%) rotate(16deg)}
+@media(max-width:760px){
+ .about-top{justify-items:center;padding-top:96px;gap:28px}
+ .about-top .polaroid{width:236px;max-width:236px;padding:12px 12px 0}
+ .about-top .polaroid p{height:40px;font-size:13px}
+ .about-top h1{text-align:center;font-size:40px}
+ .love h2{font-size:30px}
+ .foot{padding-left:24px;padding-right:24px}
+ .foot p{font-size:17px}
+}
+.m-br{display:none}@media(max-width:760px){.m-br{display:inline}}

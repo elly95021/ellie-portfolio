@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
@@ -56,7 +56,7 @@ body:not(.fan) .scrollcue{display:flex}
 .big svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .big:hover svg{transform:translateX(14px) rotate(-45deg)}
 .big:hover .w{font-style:italic}
-@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:26px;margin-bottom:22px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
+@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:26px;margin-bottom:22px}.hero h1{font-size:34px}.hero p{font-size:15px;line-height:1.75;text-align:left}.big{font-size:36px;gap:12px}.big svg{width:30px;height:30px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
 #ocean{position:absolute;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:screen;-webkit-mask:linear-gradient(#000 0%,transparent 80%);mask:linear-gradient(#000 0%,transparent 80%)}
 body[data-page=home] nav.top{background:none;transition:background .3s}
 body[data-page=home].scrolled nav.top{background:linear-gradient(var(--bg) 30%,transparent)}
@@ -100,7 +100,7 @@ body[data-page=home] main{position:relative;z-index:1}
 </section>
 </main>
 <footer class="foot" id="contact">
-  <p data-r>Curious about my work, or have thoughts to share?<br>I’d love to hear from you, let’s connect!</p>
+  <p data-r>Curious about my work,<br class="m-br"> or have thoughts to share?<br>I’d love to hear from you, let’s connect!</p>
   <div class="row" data-r style="--d:.1s">
     <a class="u" href="https://www.linkedin.com/in/yu-ru-lin-6860b21a0" target="_blank" rel="noopener">LinkedIn ↗</a>
     <button class="u" type="button" data-email>Email</button>
@@ -114,7 +114,7 @@ body[data-page=home] main{position:relative;z-index:1}
   <div class="copy">Copyright © Ellie Lin, 2026. All Rights Reserved</div>
 </footer>
 <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
-<script src="assets/site.js?v=7"></script>
+<script src="assets/site.js?v=10"></script>
 <script src="assets/shadergradient.js" defer></script>
 <script>
 {
