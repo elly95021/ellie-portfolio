@@ -346,3 +346,5 @@ html[data-theme=light] .ondark{--ink:#fff;--soft:#c5c5c5;--muted:#9d9d9d;--blue:
 html[data-theme=light] figure.ondark{padding:22px}
 html[data-theme=light] figure.ondark figcaption{color:#fff}
 html[data-theme=light] .ba-panel,html[data-theme=light] .blue-panel{--ink:#fff;--blue:#cde4fe;color:#fff}
+.theme svg{margin:0}
+html[data-theme=light] .petal{filter:brightness(0) invert(38%) sepia(52%) saturate(560%) hue-rotate(347deg) brightness(88%) contrast(90%)}
