@@ -31,6 +31,17 @@
   const onScr = () => document.body.classList.toggle('scrolled', scrollY > innerHeight * 0.6);
   onScr(); addEventListener('scroll', onScr, { passive: true });
 
+  /* light / dark switch */
+  const root = document.documentElement;
+  const syncThemeBtn = () => $$('.theme').forEach(b => b.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'));
+  syncThemeBtn();
+  $$('.theme').forEach(b => b.addEventListener('click', () => {
+    const light = root.dataset.theme !== 'light';
+    if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+    syncThemeBtn();
+  }));
+
   /* reveal on scroll */
   $$('[data-auto]').forEach(sec => [...sec.children].forEach((c, i) => { if (!c.hasAttribute('data-r')) { c.setAttribute('data-r', ''); } }));
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target; t.classList.add('in'); io.unobserve(t); setTimeout(() => { t.removeAttribute('data-r'); t.classList.remove('in'); }, 1400 + (parseFloat(t.style.getPropertyValue('--d')) || 0) * 1000); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
