@@ -84,7 +84,7 @@
     }
   }
   const logo = $('.logo');
-  if (logo && document.body.dataset.page === 'home') logo.addEventListener('click', e => { e.preventDefault(); const b = logo.getBoundingClientRect(); burst(b.left + 20, b.top + 20, 18); });
+  if (logo && document.body.dataset.page === 'home') logo.addEventListener('click', e => { e.preventDefault(); const b = logo.getBoundingClientRect(); burst(b.left + 20, b.top + 20, 18); history.replaceState(null, '', location.pathname); lenis ? lenis.scrollTo(0, { duration: 1.4 }) : scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
   const fl = $$('.flowers button');
   fl.forEach(b => b.addEventListener('click', () => {
     b.classList.add('got'); const r = b.getBoundingClientRect(); burst(r.left + 17, r.top + 17, 10);
