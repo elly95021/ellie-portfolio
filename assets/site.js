@@ -157,12 +157,12 @@
 
   /* letter-by-letter title (same as the home hero) */
   $$('[data-letters]').forEach(h => {
-    h.innerHTML = [...h.textContent].map((c, i) => c === ' ' ? ' ' : `<span class="ch" style="display:inline-block;will-change:transform;transition-delay:${reduce ? 0 : .15 + i * .05}s">${c}</span>`).join('');
+    h.innerHTML = [...h.textContent].map((c, i) => c === ' ' ? ' ' : `<span class="ch" style="display:inline-block;transition-delay:${reduce ? 0 : .15 + i * .05}s">${c}</span>`).join('');
     const chars = $$('.ch', h);
     if (!reduce) {
       chars.forEach(c => { c.style.transform = 'translateY(10px)'; c.style.opacity = 0; c.style.filter = 'blur(10px)'; });
       requestAnimationFrame(() => requestAnimationFrame(() => chars.forEach(c => { c.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease-out,filter .45s ease-out'; c.style.transform = ''; c.style.opacity = 1; c.style.filter = ''; })));
-      setTimeout(() => chars.forEach(c => { c.style.transition = 'transform .35s cubic-bezier(.3,1.5,.5,1)'; c.style.transitionDelay = '0s'; }), 750 + chars.length * 50);
+      setTimeout(() => chars.forEach(c => { c.style.transition = 'transform .35s cubic-bezier(.3,1.5,.5,1)'; c.style.transitionDelay = '0s'; c.style.removeProperty('filter'); }), 750 + chars.length * 50);
       window.__onPointer((mx, my) => chars.forEach(c => { const b = c.getBoundingClientRect(), d = Math.hypot(b.left + b.width / 2 - mx, b.top + b.height / 2 - my); c.style.transform = d < 110 ? `translateY(${-(1 - d / 110) * 14}px)` : ''; }));
     }
   });

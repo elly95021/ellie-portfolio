@@ -277,3 +277,6 @@ details.rq .body{padding-top:22px}
 .vframe img{border-radius:10px;width:100%}
 svg[viewBox="0 0 256 256"]{display:inline-block;vertical-align:-.18em;margin-right:8px;flex:none}
 .step b svg{margin-right:0}
+
+/* per-letter titles: room for italic overhangs so Safari doesn't clip them */
+.ch{padding:.12em .18em;margin:-.12em -.18em}
