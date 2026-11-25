@@ -33,10 +33,13 @@ nav.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center
 .foot .row button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;letter-spacing:inherit}
 .flowers{display:flex;gap:16px;justify-content:center}
 .flowers button{width:34px;height:34px;padding:0;border:0;background:none;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;outline:none;cursor:pointer;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
-.flowers button img{display:block;width:100%;height:100%;transition:filter .4s}
-.flowers button:hover{transform:scale(1.2) rotate(-20deg)}
+.flowers button img{display:block;width:100%;height:100%}
+@media(hover:hover){.flowers button:hover{transform:scale(1.2) rotate(-20deg)}}
 .flowers button.got{transform:scale(1.25) rotate(180deg)}
-.flowers button.got img{filter:drop-shadow(0 0 8px rgba(205,228,254,.8))}
+.flowers button{position:relative}
+.flowers button::before{content:"";position:absolute;inset:-35%;background:url(../flower-glow.png) center/contain no-repeat;opacity:0;transition:opacity .4s;pointer-events:none}
+.flowers button.got::before{opacity:.9}
+.flowers button img{position:relative}
 .flowers button:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:50%}
 .found{height:22px;margin-top:12px;font-size:14px;color:var(--blue);opacity:0;transition:opacity .4s}
 .copy{font-size:11px;color:var(--label);margin-top:18px}
