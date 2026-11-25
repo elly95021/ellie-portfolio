@@ -64,7 +64,7 @@
   function burst(x, y, n, rain) {
     if (reduce) return;
     for (let k = 0; k < n; k++) {
-      const im = new Image(); im.src = 'img/flower.png'; im.className = 'petal'; im.alt = ''; document.body.appendChild(im);
+      const im = new Image(); im.src = 'flower.png'; im.className = 'petal'; im.alt = ''; document.body.appendChild(im);
       const a = Math.random() * Math.PI * 2, v = rain ? 0 : 4 + Math.random() * 7;
       petals.push({ im, x: rain ? Math.random() * innerWidth : x, y: rain ? -40 - Math.random() * innerHeight * 0.8 : y,
         vx: rain ? (Math.random() - 0.5) * 1.5 : Math.cos(a) * v, vy: rain ? 1 + Math.random() * 2 : Math.sin(a) * v - 3,
