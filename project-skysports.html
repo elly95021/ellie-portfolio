@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sky Sports: Improving Women's Football Discoverability · Ellie Lin</title>
+<meta name="description" content="Redesigning the Sky Sports Scores app to help fans follow women's football together.">
+<meta property="og:title" content="Sky Sports: Improving Women's Football Discoverability · Ellie Lin">
+<meta property="og:description" content="Redesigning the Sky Sports Scores app to help fans follow women's football together.">
+<meta property="og:image" content="img/home/ember.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+
+</head>
+<body data-page="case">
+<nav class="top" aria-label="Main">
+  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="img/logo.png" alt="" width="40" height="40"></a>
+  <div class="links">
+    <a href="./#works">Work</a>
+    <a href="about-me">About</a>
+    <a href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+  </div>
+  <a class="pill" href="#contact">Contact</a>
+</nav>
+<main id="top">
+<div class="cs">
+<header class="cs-hero">
+  <div data-r><div class="blue-panel"><video src="img/skysports/live-chat.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div></div>
+  
+  <h1 data-r>Improving Women's Football Discoverability</h1>
+  <div class="intro">
+    <div data-r><p>Sky Sports is Europe’s leading sports broadcaster, but its coverage and fan experiences have mostly been built around men’s competitions, so women’s sport is often less visible. Many people tune in for major events, but fewer follow women’s sport across a season.</p>
+<p>This project aimed to help fans <b>build social circles</b> around women’s football, so following it becomes an <b>everyday habit</b>. The long-term goal was to make women’s sport <b>more visible overall</b>.</p>
+<p>In a team of five, I <b>led the research</b>, <b>interviews</b> and <b>concept testing</b>, presented our work to Sky Sports, and <b>designed the live chat room</b>.</p></div>
+    <dl class="meta" data-r style="--d:.15s"><dt>Role</dt><dd>Project manager, UX researcher &amp; UI designer</dd><dt>What I did</dt><dd>UX research, data analysis, concept testing, hi-fi prototyping</dd><dt>Tools</dt><dd>Claude Code, Figma, FigJam</dd><dt>Duration</dt><dd>3 months</dd><dt>Client</dt><dd><img src="img/skysports/sky-logo.png" alt="Sky Sports"></dd></dl>
+  </div>
+  <a class="skip" href="#final-design" data-r>Skip to final design</a>
+</header>
+
+<section class="sec" data-auto>
+  <p class="lab">The Problem</p>
+  <h2>Women's football fans tuned in for big tournaments, but didn't stay</h2>
+  <p>Women's sport has grown rapidly in visibility and participation in recent years, and many fans watch major women's tournaments. However, they struggle to build deeper connections with teams, leagues or athletes, which <b>limits long-term engagement</b>.</p>
+  <p>To address this, we narrowed our focus to <b>women’s football</b>. England’s wins at the UEFA Women’s EURO in 2022 and 2025 brought women’s football a lot of attention, but this attention didn't last after the tournaments.</p>
+  <p>Through initial research, we identified two core challenges that prevent fans from consistently following women's football:</p>
+  <div class="grid2 narrow">
+    <div class="card"><span class="t"><span class="n">①</span> Lack of an entry point</span>New fans don't know where to start</div>
+    <div class="card"><span class="t"><span class="n">②</span> No long-term engagement path</span>Even interested fans struggle to stay connected across a season</div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Research</p>
+  <h2>Fans were interested, but had no way in</h2>
+  <p>We used <b>3 methods</b> to understand how people follow women’s football. I led all 3, from planning to analysis.</p>
+  <h2 style="margin-top:36px">Fans loved the community, but the games were hard to follow</h2>
+  <h3 style="margin-top:0"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4c.5 2.5 2.5 4 5 4"/></svg>Digital ethnography · 3 platforms</h3>
+  <p>We observed women’s football communities on Reddit, TikTok and Instagram:</p>
+  <div class="grid2 narrow" style="align-items:start">
+    <div class="card"><span class="t">What fans love</span>• Behind-the-scenes clips that show the real, authentic side of players<br>• The welcoming, community-driven atmosphere around women's football</div>
+    <div class="card"><span class="t">Pain points fans face when following the game</span>Low media coverage and fragmented broadcast channels make it hard to follow consistently</div>
+  </div>
+  <h2 style="margin-top:56px">Watching football is social, but women's football is still on the outside</h2>
+  <h3 style="margin-top:0"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a7 7 0 0 1 14 0c0 3-2 4-3 6s-2 3-4 3M8 12a3 3 0 0 1 6 0M19 5l2-2M20 10h2"/></svg>Interviews · 19 participants</h3>
+  <p>We ran structured interviews with participants aged 20 to 35. Their watching habits fell into three groups:</p>
+  <ul class="dots"><li>Watch both <strong>men's and women's</strong> football</li><li>Watch men's, but <strong>only women's major tournaments</strong></li><li>Don't watch football at all</li></ul>
+  <p>2 key insights stood out:</p>
+  <div class="row" style="margin:16px 0"><div class="card"><span class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:6px"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg>Social gets people in the door</span>Almost no one discovered women's football on their own. It was usually a friend, a partner, or a family member.</div><div class="quote"><q>On weekdays I watch at home with my dad. Weekends, I go to the pub with friends. -P05</q></div></div>
+  <div class="row" style="margin:16px 0"><div class="card"><span class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:6px"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM19 15l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>The interest is there, but the entry points aren't</span>People don't know when matches are on, or where to watch them. Discovery and access are both broken.</div><div class="quote"><q>The coverage just isn't there. I never know where to watch, and none of my friends follow it either. -P06</q></div></div>
+  <h2 style="margin-top:56px">Supporting the growth of women's sport was what drew people in</h2>
+  <h3 style="margin-top:0"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Survey · 19 responses</h3>
+  <div class="grid2">
+    <div class="card center"><span style="display:block;font-size:28px;color:var(--blue)">36.8%</span>watched only during major tournaments<img class="zoomable" src="img/skysports/survey-watch.png" alt="Donut chart: how often do you watch women's football? 36.8% only watch major tournaments" loading="lazy" style="margin:10px auto 0"></div>
+    <div class="card center"><span style="display:block;font-size:28px;color:var(--blue)">64.7%</span>supporting the growth of women's sport<img class="zoomable" src="img/skysports/survey-appeal.svg" alt="Bar chart: most appealing aspects of women's football, led by supporting the growth of women's sport" loading="lazy" style="margin:10px auto 0"></div>
+  </div>
+  <p>Wanting to <strong>support the growth of women’s sport</strong> also came up in our interviews:</p>
+  <div class="quote"><q>A few years ago, I never would have imagined women's football getting to where it is today. It's genuinely moving to see how far it's come. -P18</q></div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Key Insights</p>
+  <h2>Why fans drop off after major tournaments</h2>
+  <p>Major tournaments are the primary driver. Fans tune in for the occasion, not out of routine.</p>
+  <p style="margin:24px 0 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:8px"><circle cx="12" cy="12" r="10"/><path d="M8 16s1.5-2 4-2 4 2 4 2M9 9h.01M15 9h.01"/></svg>What held them back:</p>
+  <div class="grid2">
+    <div class="card"><span class="t">Social isolation breaks engagement</span>Lack of support for discussing women's football in social circles</div>
+    <div class="card"><span class="t">Fans can't find women's football</span>Online platforms lack clear women's football sections, hindering accessibility</div>
+  </div>
+  <p style="margin:24px 0 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:8px"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>What could keep them:</p>
+  <div class="grid2">
+    <div class="card"><span class="t">Live games turn people into fans</span>Live experience is consistently cited as a turning point, but this isn't being scaled</div>
+    <div class="card"><span class="t">A powerful vibe that no one markets</span>People enjoy the family-friendly atmosphere at women's football games</div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Persona</p>
+  <h2>Meet Primary and Secondary Persona</h2>
+  <p>Based on research data, we defined two personas to maintain user-centred perspective design solutions.</p>
+  <div data-track>
+    <div class="persona-track" tabindex="0" aria-label="Personas, scroll sideways">
+      <article class="persona">
+  <div class="who"><img src="img/skysports/persona-primary.png" alt=""><h5>Primary Persona</h5><p style="margin:0">A <strong>men’s football</strong> fan who <strong>enjoys women’s football</strong> more than she expected</p>
+  <div class="tags"><span>Social</span><span>Man City fan</span><span>Occasional viewer</span></div></div>
+  <div><span class="k">Goals</span>• Find <strong>friends</strong> to watch women’s football with, so getting into it feels more enjoyable and less lonely<br>• Feel part of a <strong>community</strong><span class="k">Pain Points</span>• <strong>No one</strong> to talk about women’s football with<br>• No standout element to keep her <strong>engaged</strong><span class="k">Motivation</span>Sense of community</div>
+</article>
+      <article class="persona">
+  <div class="who"><img src="img/skysports/persona-secondary.png" alt=""><h5>Secondary User</h5><p style="margin:0">A <strong>men’s football fan</strong> who <strong>only</strong> watches women’s <strong>major tournaments</strong></p>
+  <div class="tags"><span>Loves football</span><span>Parent</span><span>Busy</span></div></div>
+  <div><span class="k">Goals</span>• Get women’s football news <strong>naturally</strong><br>• Feel the <strong>live match atmosphere</strong> even from home<span class="k">Pain Points</span>• <strong>Hard to notice</strong> women’s football news<br>• <strong>No time</strong> to attend matches in person<span class="k">Motivation</span>Just love football</div>
+</article>
+    </div>
+    <div class="swipe"><button type="button" data-dir="-1" aria-label="Previous persona">←</button><span>swipe left and right</span><button type="button" data-dir="1" aria-label="Next persona">→</button></div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Design Goals</p>
+  <h2>Make it easy to share, watch together, and keep following</h2>
+  <p>Research showed that many men’s football fans also watched women’s football, but only during major tournaments. We saw an opportunity to bring them closer, which led to our HMW:</p>
+  <h2 class="center" style="margin:28px auto">HMW help all football fans naturally discover and follow women's football?</h2>
+  <p>We broke this into smaller questions, used a <b>prioritisation matrix</b> to focus on three, and turned each into a <b>design principle</b>:</p>
+  <div class="grid3" style="align-items:start">
+    <div class="card"><span class="t">Discover</span>HMW make women's football content visible to all potential fans?<span class="center" style="display:block">↓</span><small style="margin-top:0">Design Principle</small><span class="t">Shareable</span>Spread women's football organically across communities</div>
+    <div class="card"><span class="t">Connect</span>HMW help fans watch matches together, even when they're not in the same place?<span class="center" style="display:block">↓</span><small style="margin-top:0">Design Principle</small><span class="t">Connected</span>Foster shared excitement and a sense of belonging</div>
+    <div class="card"><span class="t">Follow</span>HMW make it easier for football fans who don't watch women's football to follow it?<span class="center" style="display:block">↓</span><small style="margin-top:0">Design Principle</small><span class="t">Engaged</span>Sustain interest in women's football beyond a single match</div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Ideation</p>
+  <h2>Exploring ways to bring fans together, in person and online</h2>
+  <div class="row">
+    <p style="margin:0">We came up with seven feature ideas, from real-life events to digital features, and narrowed them down as a team.</p>
+    <figure class="" style="margin:0"><img src="img/skysports/brainstorm.png" alt="FigJam board of feature ideas and their evaluation" loading="lazy" class="zoomable"><figcaption class="c">Feature brainstorming and evaluation</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Testing</p>
+  <h2>Fans wanted to know when to watch, and who to watch with</h2>
+  <div class="row">
+    <p style="margin:0">We ran a quick concept test with 2 participants using paper sketches. Their <strong>feedback matched</strong> what we heard in our earlier interviews.</p>
+    <figure class="" style="margin:0"><img src="img/skysports/sketches.png" alt="Paper sketches of the calendar, My Team and live chat room concepts" loading="lazy" class="zoomable"><figcaption class="c">Sketches used in user testing. I led the <strong>live chat room feature</strong>.</figcaption></figure>
+  </div>
+  <p>Through concept testing, we prioritised <strong>3 features</strong>:</p>
+  <div class="grid3" style="align-items:start">
+    <div class="card"><span class="t"><span class="n">①</span> Small live chat room</span>Participants preferred a small chat room to a big one.<br><i>“I prefer to enjoy the game with the people closest to me, like my family or friends.” - P01</i></div>
+    <div class="card"><span class="t"><span class="n">②</span> Calendar</span>Participants found it the most useful feature.<br><i>“I literally forget the kick-off times sometimes... this also creates a sense of anticipation!” - P02</i></div>
+    <div class="card"><span class="t"><span class="n">③</span> My Team page</span>Participants were glad to see women’s football content given equal space to men’s.</div>
+  </div>
+  <h2 class="center" style="margin-top:56px">From Research to Design Solutions</h2>
+</section>
+
+<section class="sec" id="final-design" data-auto>
+  <p class="lab">Final Design</p>
+  <h2>Live Chat Room <span style="font-size:22px;color:var(--label);margin-left:8px">(Led by me)</span></h2>
+  <h3 class="big">Football is social. Live chat rooms let fans watch with their own people, even when they’re not in the same place.</h3>
+  <div class="blue-panel" style="margin:28px 0"><video src="img/skysports/live-chat.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div>
+  <div class="features">
+    <img class="phone zoomable" src="img/skysports/rooms-list.png" alt="Live chat rooms list with a private room and public rooms tagged by vibe" loading="lazy">
+    <div><h5>Create a private room</h5><p>Invite friends or family to a room of your own. In testing, both participants preferred watching with the people closest to them.</p>
+      <h5>Join a public room</h5><p>Chat with other fans during the match, even when no one in your own circle follows women’s football.</p>
+      <h5>Pick a room by its vibe</h5><p>Tags show what each room feels like before you join. For example, “New to this” gives first-time fans an easy way in.</p></div>
+    <img class="phone zoomable" src="img/skysports/private-room.png" alt="Private room screen with the match stream and friends watching" loading="lazy">
+    <div><h5>Watch the match together</h5><p>Stream the match and chat in one place. Fans you meet in a room can be added as friends for the next match.</p></div>
+  </div>
+
+  <h2 style="margin-top:72px">Match Calendar</h2>
+  <h3 class="big">Never miss kick-off. See when your team plays and who’s watching, then invite friends to join.</h3>
+  <div class="blue-panel" style="margin:28px 0"><video src="img/skysports/calendar.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div>
+  <p class="lab center" style="margin:36px 0 0">Before</p>
+  <p class="center">No way to tell which days have a match</p>
+  <figure class="" style="max-width:620px;margin-inline:auto"><img src="img/skysports/calendar-before.png" alt="Original schedule screens with no match-day markers" loading="lazy" class="zoomable"></figure>
+  <p class="lab center" style="margin:36px 0 0">After</p>
+  <p class="center">Match days marked, with kick-off times and friends</p>
+  <figure class="" style=""><img src="img/skysports/calendar-after.png" alt="Redesigned schedule with match days marked, friends list and invitation sent" loading="lazy" class="zoomable"></figure>
+
+  <h2 style="margin-top:72px">My Team Page</h2>
+  <h3 class="big">Men’s and women’s football get equal space on My Team page, so fans of the men’s team can discover the women’s team naturally.</h3>
+  <div class="ba">
+    <div class="ba-panel"><p class="lab">Before</p><p>Original home page:<br>women’s football is hard to find</p><video src="img/skysports/myteam-before.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div>
+    <div class="ba-panel"><p class="lab">After</p><p>Redesigned My Team page:<br>men’s and women’s games side by side</p><video src="img/skysports/myteam-after.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Outcome Evaluation</p>
+  <h2>How I’d measure success</h2>
+  <p>This was a master’s project with Sky Sports, so the features weren’t built. If they were launched, I’d track these metrics:</p>
+  <table class="tbl">
+    <thead><tr><th>Feature</th><th>Metrics</th><th>Goal</th></tr></thead>
+    <tbody>
+      <tr><td>Live Chat Room</td><td>Number of <strong>private rooms created</strong>, and how many users <strong>come back</strong> to watch another match</td><td>Connect</td></tr>
+      <tr><td>Match Calendar</td><td>Number of matches <strong>added to calendars</strong>, and how many of those matches users <strong>actually watch</strong></td><td>Follow</td></tr>
+      <tr><td>My Team Page</td><td>Number of <strong>men’s football fans</strong> who <strong>visit</strong> the women’s team page, and how many of them <strong>go on to watch</strong> a women’s match</td><td>Discover</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Reflection</p>
+  <h2>What I learned…</h2>
+  <div class="grid2" style="align-items:center">
+    <div class="card"><span class="t">Define the responsibilities and scope first</span>More designers doesn’t always mean faster progress. Clear roles and regular check-ins help everyone focus on their own part and avoid repeated work.</div>
+    <div class="card"><span class="t">AI speeds things up, but insights come from people</span>AI helped us iterate on ideas and organise raw data much faster. But the real value came from talking to participants, where we found the insights that shaped solutions around our project goals.</div>
+  </div>
+</section>
+
+<button class="backtop" type="button" data-top data-r>Back to top</button>
+<section class="others" data-r>
+  <h2>Other Works</h2>
+  <div class="grid3"><a href="project-ember" data-cursor="view"><div class="im"><img src="img/home/ember.jpg" alt="" loading="lazy"></div><span>Ember: AI chatbot for breast cancer screening</span></a><a href="project-equivalence" data-cursor="view"><div class="im"><img src="img/home/equivalence.jpg" alt="" loading="lazy"></div><span>Equivalence: Reducing Onboarding Drop-off for Migrants</span></a><a href="project-metagigs" data-cursor="view"><div class="im"><img src="img/home/metagigs.jpg" alt="" loading="lazy"></div><span>Metagigs: Rebranding a Game Coaching Marketplace Website</span></a></div>
+</section>
+</div>
+</main>
+<footer class="foot" id="contact">
+  <p data-r>Curious about my work, or have thoughts to share?<br>I’d love to hear from you, let’s connect!</p>
+  <div class="row" data-r style="--d:.1s">
+    <a class="u" href="https://www.linkedin.com/in/yu-ru-lin-6860b21a0" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <button class="u" type="button" data-email>Email</button>
+  </div>
+  <div class="flowers" data-r style="--d:.2s">
+    <button type="button" aria-label="Flower 1"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 2"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 3"><img src="img/flower.png" alt=""></button>
+  </div>
+  <div class="found">You found all three. Thanks for exploring!</div>
+  <div class="copy">Copyright © Ellie Lin, 2026. All Rights Reserved</div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+
+</body>
+</html>

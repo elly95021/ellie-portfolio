@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ellie Lin · Product Designer</title>
+<meta name="description" content="Ellie Lin is a product designer with a project management background, creating research-backed designs that put users first and meet business goals.">
+<meta property="og:title" content="Ellie Lin · Product Designer">
+<meta property="og:description" content="Ellie Lin is a product designer with a project management background, creating research-backed designs that put users first and meet business goals.">
+<meta property="og:image" content="img/home/ember.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+.hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
+.hero h1{font:italic 400 clamp(40px,5.6vw,72px)/1.1 Fraunces,serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 24px}
+.hero h1 .ch{display:inline-block;transition:transform .35s cubic-bezier(.3,1.5,.5,1);will-change:transform}
+.hero p{max-width:640px;margin:0 auto;font-size:18px}
+.hero em{font-family:Fraunces,serif;font-weight:600;font-style:italic;color:var(--ink);cursor:default;transition:color .25s}
+.hero em:hover{color:var(--blue)}
+.scrollcue{display:none;margin-top:48px;font-size:13px;color:var(--soft);flex-direction:column;align-items:center;gap:10px}
+.scrollcue i{width:1px;height:44px;background:linear-gradient(var(--blue),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+body:not(.fan) .hero{height:auto;min-height:0;padding-bottom:80px}
+body:not(.fan) .scrollcue{display:flex}
+#works{padding:40px 0 60px}
+#works h2,.ai h2{font:400 32px/1.2 Fraunces,serif;letter-spacing:-.03em;margin:0 0 32px}
+.wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px}
+.wcard{display:block;position:relative;will-change:transform;-webkit-user-drag:none;user-select:none}
+.shot{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card2);box-shadow:0 20px 50px -18px rgba(0,0,0,var(--sh,.3));transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s,border-color .3s}
+.wcard:hover .shot{border-color:rgba(205,228,254,.35)}
+.shot img{width:100%;aspect-ratio:1.618;object-fit:cover;pointer-events:none;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.wcard:hover .shot img{transform:scale(1.04)}
+.desc{position:absolute;inset:auto 0 0;margin:0;padding:48px 20px 16px;font-size:15px;line-height:1.5;color:#fff;background:linear-gradient(transparent,rgba(12,14,19,.94) 45%);transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.wcard:hover .desc{transform:none}
+.fanned .desc{display:none}
+.wmeta{padding-top:18px}
+.wmeta h3{font:500 20px/1.35 Satoshi,sans-serif;margin:0 0 12px;letter-spacing:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;background:var(--pill);color:var(--soft);white-space:nowrap}
+.ai{padding:100px 0 60px;border-top:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.step{background:#1c1f26;border:1px solid transparent;border-radius:14px;padding:22px 24px;transition:border-color .3s,transform .3s}
+.step:hover{border-color:rgba(205,228,254,.3);transform:translateY(-4px)}
+.step b{display:block;margin-bottom:6px}
+.step p{margin:0 0 10px;font-size:16px;line-height:1.65}
+.step small{font-size:13px;color:var(--soft)}
+.aboutlink{text-align:center;padding:100px 0 20px;border-top:1px solid var(--line)}
+.big{display:inline-flex;align-items:center;gap:18px;font:400 clamp(44px,7vw,84px)/1 Fraunces,serif;letter-spacing:-.03em;color:var(--blue)}
+.big svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.big:hover svg{transform:translateX(14px) rotate(-45deg)}
+.big:hover .w{font-style:italic}
+@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}}
+</style>
+</head>
+<body data-page="home">
+<nav class="top" aria-label="Main">
+  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="img/logo.png" alt="" width="40" height="40"></a>
+  <div class="links">
+    <a href="#works">Work</a>
+    <a href="about-me">About</a>
+    <a href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+  </div>
+  <a class="pill" href="#contact">Contact</a>
+</nav>
+<main id="top">
+<header class="hero wrap">
+  <h1 id="hi">Hey there, I’m Ellie!</h1>
+  <p data-r style="--d:.5s">A <em>product designer</em> with a <em>project management</em> background.<br>
+  I enjoy digging into messy problems, planning the path forward, and creating <em>research-backed</em> designs that put users first and meet <em>business goals</em>.</p>
+  <div class="scrollcue" data-r style="--d:.8s">Scroll to see my work<i></i></div>
+</header>
+<section id="works" class="wrap">
+  <h2 data-r>Selected Works</h2>
+  <div class="wgrid" id="grid"><a class="wcard" href="project-ember" draggable="false" data-cursor="view"><div class="shot"><img src="img/home/ember.jpg" alt="" draggable="false"><p class="desc">Investigated how a psychology-informed agent affects women's fear of breast screening and willingness to attend.</p></div><div class="wmeta"><h3>Ember: AI chatbot for breast cancer screening</h3><div class="tags"><span>UX Research</span><span>Conversational AI</span><span>Digital Health</span></div></div></a><a class="wcard" href="project-skysports" draggable="false" data-cursor="view"><div class="shot"><img src="img/home/skysports.jpg" alt="" draggable="false"><p class="desc">Redesigned the Sky Sports Scores app to increase the visibility of women's football and reduce the friction of following it.</p></div><div class="wmeta"><h3>Sky Sports: Improving Women's Football Discoverability</h3><div class="tags"><span>Product Design</span><span>B2C Mobile App</span><span>Media</span></div></div></a><a class="wcard" href="project-equivalence" draggable="false" data-cursor="view"><div class="shot"><img src="img/home/equivalence.jpg" alt="" draggable="false"><p class="desc">Equivalence is a platform that supports migrants. I optimized the onboarding flow to reduce the drop-off rate in form completion.</p></div><div class="wmeta"><h3>Equivalence: Reducing Onboarding Drop-off for Migrants</h3><div class="tags"><span>Information Architecture</span><span>Web App</span><span>Client Project</span></div></div></a><a class="wcard" href="project-metagigs" draggable="false" data-cursor="view"><div class="shot"><img src="img/home/metagigs.jpg" alt="" draggable="false"><p class="desc">Redesigned the Metagigs brand website to turn complex mechanics into a clear story about the product's value and long-term vision.</p></div><div class="wmeta"><h3>Metagigs: Rebranding a Game Coaching Marketplace Website</h3><div class="tags"><span>Branding</span><span>B2B Website</span><span>Gaming</span></div></div></a></div>
+</section>
+<section class="ai wrap">
+  <h2 data-r>How I Work With AI</h2>
+  <div class="steps">
+    <div class="step" data-r><b>Research &amp; synthesis</b><p>I use AI to organise raw research data, like interview notes and survey responses, so I can spot patterns faster. But I still run the interviews and decide which insights matter myself.</p><small>Tools: Claude</small></div>
+    <div class="step" data-r style="--d:.1s"><b>Ideation &amp; pressure-testing</b><p>After mapping ideas myself, I use AI to generate more options and challenge my assumptions, so I can find gaps before testing with users.</p><small>Tools: Claude, Figjam</small></div>
+    <div class="step" data-r style="--d:.2s"><b>Prototyping in code</b><p>I design the key screens in Figma first, then build them with Claude Code into working prototypes. This lets me test real interactions instead of static screens.</p><small>Tools: Figma, Claude Code, GitHub, Vercel</small></div>
+    <div class="step" data-r style="--d:.3s"><b>Testing</b><p>Before testing with real users, I go through my prototypes with the unexpected things people might do, to find where they break. Since I build them with Claude Code, I can fix issues and test again quickly.</p><small>Tools: Claude Code</small></div>
+  </div>
+</section>
+<section class="aboutlink wrap">
+  <a class="big" href="about-me" data-r><span class="w">About me</span>
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</section>
+</main>
+<footer class="foot" id="contact">
+  <p data-r>Curious about my work, or have thoughts to share?<br>I’d love to hear from you, let’s connect!</p>
+  <div class="row" data-r style="--d:.1s">
+    <a class="u" href="https://www.linkedin.com/in/yu-ru-lin-6860b21a0" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <button class="u" type="button" data-email>Email</button>
+  </div>
+  <div class="flowers" data-r style="--d:.2s">
+    <button type="button" aria-label="Flower 1"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 2"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 3"><img src="img/flower.png" alt=""></button>
+  </div>
+  <div class="found">You found all three. Thanks for exploring!</div>
+  <div class="copy">Copyright © Ellie Lin, 2026. All Rights Reserved</div>
+</footer>
+<a class="cv" href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener"><span class="tab">CV</span><span>Grab my<br>résumé ↗</span></a>
+<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+<script>
+{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const grid=document.getElementById('grid');
+const cards=[...grid.children].map((el,i)=>({el,i,lift:0,hover:false}));
+/* hero letters */
+const hi=document.getElementById('hi');
+hi.innerHTML=[...hi.textContent].map((c,i)=>c===' '?' ':`<span class="ch" style="transition-delay:${reduce?0:i*.035}s">${c}</span>`).join('');
+const chars=[...hi.querySelectorAll('.ch')];
+if(!reduce){chars.forEach(c=>{c.style.transform='translateY(60%) rotate(8deg)';c.style.opacity=0});
+ requestAnimationFrame(()=>requestAnimationFrame(()=>chars.forEach(c=>{c.style.transition='transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s';c.style.transform='';c.style.opacity=1})));
+ setTimeout(()=>chars.forEach(c=>{c.style.transition='';c.style.transitionDelay='0s'}),1800);}
+window.__onPointer&&window.__onPointer((mx,my)=>chars.forEach(c=>{const b=c.getBoundingClientRect(),d=Math.hypot(b.left+b.width/2-mx,b.top+b.height/2-my);c.style.transform=d<110?`translateY(${-(1-d/110)*14}px)`:''}));
+/* fan -> grid */
+let fan=false,vw=0,vh=0,end=1,geo=[];
+const rot=[-9,-3,2.5,8],arc=[.05,.005,0,.035],zs=[1,2,4,3];
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const ease=t=>1-Math.pow(1-t,3);
+const docTop=el=>{let y=0;while(el){y+=el.offsetTop;el=el.offsetParent}return y};
+const docLeft=el=>{let x=0;while(el){x+=el.offsetLeft;el=el.offsetParent}return x};
+function layout(){
+ vw=innerWidth;vh=innerHeight;
+ fan=!reduce&&vw>=760&&vh>=560;
+ document.body.classList.toggle('fan',fan);
+ cards.forEach(c=>{c.el.style.transform='';c.el.style.zIndex='';c.el.querySelector('.wmeta').style.opacity='';c.el.classList.remove('fanned')});
+ if(!fan)return;
+ const fw=Math.min(vw*.22,380),sp=fw*.82;
+ geo=cards.map((c,i)=>{
+  const img=c.el.querySelector('.shot'),gw=img.offsetWidth,gh=img.offsetHeight;
+  const gx=docLeft(c.el)+gw/2,gy=docTop(c.el)+gh/2;
+  const fh=fw/1.618,fx=vw/2+(i-1.5)*sp,fy=vh*.66+fh/2+arc[i]*vw;
+  c.el.style.transformOrigin=`50% ${gh/2}px`;
+  return {dx:fx-gx,dy:fy-gy,s:fw/gw};
+ });
+ end=Math.max(1,docTop(grid)-130);
+}
+addEventListener('resize',layout);addEventListener('load',layout);layout();
+cards.forEach(c=>{
+ const el=c.el,shot=el.querySelector('.shot');
+ el.addEventListener('pointerenter',()=>{c.hover=true});
+ el.addEventListener('pointerleave',()=>{c.hover=false;shot.style.setProperty('--rx','0deg');shot.style.setProperty('--ry','0deg')});
+ el.addEventListener('pointermove',e=>{const b=shot.getBoundingClientRect();shot.style.setProperty('--ry',((e.clientX-b.left)/b.width-.5)*8+'deg');shot.style.setProperty('--rx',(.5-(e.clientY-b.top)/b.height)*8+'deg')});
+});
+window.__onFrame&&window.__onFrame(()=>{
+ if(!fan)return;
+ const p=clamp(scrollY/end);
+ cards.forEach((c,i)=>{
+  const g=geo[i];if(!g)return;
+  const t=ease(clamp((p-i*.05)/.8)),k=1-t;
+  c.lift+=((c.hover&&k>.6?1:0)-c.lift)*.18;
+  const s=1+(g.s-1)*k;
+  c.el.style.transform=`translate(${g.dx*k}px,${g.dy*k-c.lift*36}px) rotate(${rot[i]*k*(1-c.lift*.6)}deg) scale(${s})`;
+  c.el.style.zIndex=k>.02?10+zs[i]+(c.hover?10:0):'';
+  c.el.style.setProperty('--sh',(.3+.5*k).toFixed(2));
+  c.el.querySelector('.wmeta').style.opacity=clamp((t-.55)/.4);
+  c.el.classList.toggle('fanned',k>.3);
+ });
+});
+}
+</script>
+</body>
+</html>

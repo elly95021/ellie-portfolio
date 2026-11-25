@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equivalence: Reducing Onboarding Drop-off for Migrants · Ellie Lin</title>
+<meta name="description" content="Redesigning the EQV CV request flow for highly qualified migrants in one week.">
+<meta property="og:title" content="Equivalence: Reducing Onboarding Drop-off for Migrants · Ellie Lin">
+<meta property="og:description" content="Redesigning the EQV CV request flow for highly qualified migrants in one week.">
+<meta property="og:image" content="img/home/ember.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
+
+</head>
+<body data-page="case">
+<nav class="top" aria-label="Main">
+  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="img/logo.png" alt="" width="40" height="40"></a>
+  <div class="links">
+    <a href="./#works">Work</a>
+    <a href="about-me">About</a>
+    <a href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+  </div>
+  <a class="pill" href="#contact">Contact</a>
+</nav>
+<main id="top">
+<div class="cs">
+<header class="cs-hero">
+  <div data-r><div class="media"><img src="img/equivalence/hero.png" alt="Redesigned Equivalence home page and EQV CV request flow on laptop and tablet"></div></div>
+  <p class="award" data-r><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Best Client Relationship Mentor’s Award · UXathon 2025</p>
+  <h1 data-r>Reducing Onboarding Drop-off for Migrants</h1>
+  <div class="intro">
+    <div data-r><p>Equivalence is a platform that helps <strong>highly qualified migrants</strong> build their careers in a new country. It recognises their education, experience and skills, and translates them into the context of the Portuguese labour market.</p>
+<p>During a one-week UXathon, I led a team of four to redesign the EQV CV request flow. I drove the research and user journey analysis, then restructured the information architecture and user flow to <strong>reduce friction and confusion</strong>, and to <strong>increase form completion and profile requests</strong>.</p></div>
+    <dl class="meta" data-r style="--d:.15s"><dt>Role</dt><dd>Design lead &amp; project manager</dd><dt>What I did</dt><dd>UX research, journey mapping, user flows, information architecture, wireframing</dd><dt>Duration</dt><dd>1 week (UXathon 2025)</dd><dt>Client</dt><dd><img src="img/equivalence/logo.png" alt="Equivalence" style="height:18px"></dd></dl>
+  </div>
+  <a class="skip" href="#final-design" data-r>Skip to final design</a>
+</header>
+
+<section class="sec" data-auto>
+  <p class="lab">Context</p>
+  <h2>What's EQV CV?</h2>
+  <p>Many <strong>highly qualified migrants</strong> end up in jobs below their skill level because their foreign qualifications aren’t properly understood. Equivalence calls this “<strong>brain waste</strong>”, like a doctor working in a supermarket.</p>
+  <p>To tackle this, Equivalence created <strong>EQV CV</strong>: a CV adapted to the Portuguese labour market using local references and context.</p>
+  <p>Requesting an EQV CV takes four steps:</p>
+  <div class="flowline"><span>1. Register</span><span>2. Fill in personal details and the Integration Scale</span><span>3. Add work experience or upload a CV</span><span>4. Click “Request”</span></div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Problem</p>
+  <h2>Only 1 in 4 pilot users reached “Request EQV CV”</h2>
+  <p>In the current EQV CV request journey, users <strong>struggled to complete</strong> the steps leading up to the “Request EQV CV” action.</p>
+  <div class="stats">
+    <div class="card"><span class="big">75%</span><strong>never requested</strong><br>their EQV CV<small>(240 / 320)</small></div>
+    <div class="card"><span class="big">75%</span>Low completion of <strong>essential data</strong><small><strong>239 of 320</strong> left their profile and Integration Scale incomplete</small></div>
+    <div class="card"><span class="big">21 users</span><strong>Drop-offs</strong> at the final action<small>uploaded their experience or CV but <strong>stopped</strong> before clicking “Request”</small></div>
+  </div>
+  <div class="grid2" style="gap:32px;margin-top:36px">
+    <div><img class="zoomable" src="img/equivalence/old-home.png" alt="Original Equivalence home page" loading="lazy" style="border-radius:10px">
+      <p style="margin:16px 0 4px"><strong>Original home page: A lack of clarity about what users were doing and why</strong></p><p>The progress cards look clickable but aren’t, and there’s no clear next step.</p></div>
+    <div><img class="zoomable" src="img/equivalence/old-profile-1.png" alt="Original profile page with Integration Scale" loading="lazy" style="border-radius:10px;margin-bottom:12px"><img class="zoomable" src="img/equivalence/old-profile-2.png" alt="Original profile page with separate dropdown sections" loading="lazy" style="border-radius:10px">
+      <p style="margin:16px 0 4px"><strong>Profile page: A fragmented flow with no clear progression or support</strong></p><p>The form is split into separate dropdowns, so it feels like many different tasks.</p></div>
+  </div>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Discovery</p>
+  <h2>Where users got stuck</h2>
+  <p>To understand <strong>where users got stuck</strong>, we worked with Equivalence to gather feedback from <strong>pilot users</strong> who had received their EQV CV.</p>
+  <div class="quotes2">
+    <div class="quote"><q>It is a very useful tool but difficult to use</q></div>
+    <div class="quote"><q>It contains specific information about Portugal that needs to be contextualized or explained beforehand</q></div>
+    <div class="quote"><q>Once you understand it, it is very beneficial</q></div>
+    <div class="quote"><q>Too much text</q></div>
+  </div>
+  <p>We also walked through the <strong>EQV CV request process</strong> ourselves and mapped the current journey.</p>
+  <figure class="" style=""><img src="img/equivalence/journey-map.png" alt="Current-state journey map of the EQV CV request process, with user actions, feelings, thoughts and pain points" loading="lazy" class="zoomable"></figure>
+  <p>From the journey map, we identified <strong>three key pain points</strong>:</p>
+  <div class="grid3" style="align-items:start">
+    <div class="card"><span class="n">①</span><br>Mood dropped right after “Save information”. Nothing told users to click “Profile” to continue.</div>
+    <div class="card"><span class="n">②</span><br>The form felt like a test, and it wasn’t clear what the Integration Scale was for.</div>
+    <div class="card"><span class="n">③</span><br>Users had to enter the same information several times: LinkedIn, CV, then education and work experience.</div>
+  </div>
+  <h2 class="center">Users found the EQV CV useful,<br>but hard to get to and hard to read.</h2>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Design goals</p>
+  <h2>How might we create a clearer, more guided flow that helps users confidently complete key fields and follow through to request their EQV CV without dropping off?</h2>
+  <p>Based on our research and the client’s requirements, we set three goals for a <strong>smoother</strong>, <strong>more intuitive</strong> experience that helps users:</p>
+  <div class="grid3" style="align-items:start">
+    <div class="card"><span class="t"><span class="n">①</span> Understand each step</span>Show users where they are and what comes next.<span class="arrow">→ Fewer drop-offs along the way</span></div>
+    <div class="card"><span class="t"><span class="n">②</span> Complete all required data</span>Make key details easy to fill in, and clear why each one matters.<span class="arrow">→ Complete data to measure impact</span></div>
+    <div class="card"><span class="t"><span class="n">③</span> Request EQV CV easily</span>Make the final action clear and hard to miss.<span class="arrow">→ More EQV CV requests</span></div>
+  </div>
+</section>
+
+<section class="sec" id="final-design" data-auto>
+  <p class="lab">Final Design</p>
+  <h2>EQV CV Request Flow</h2>
+  <p>With <strong>only one week</strong>, we worked closely with the client and focused on the EQV CV request process, where small changes could deliver quick wins.</p>
+  <figure style="max-width:800px;margin-inline:auto"><div class="media"><video src="img/equivalence/flow.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div></figure>
+  <p class="lab" style="margin-top:48px">Key design decisions</p>
+  <h4>01 Understand each step</h4><p>The original site didn’t show the steps, so users couldn’t tell where they were or what came next. We added a stepper that stays fixed at the top, so users always know <strong>which step they’re on</strong> and <strong>how many are left</strong>.</p>
+<div class="ba"><div><p class="lab">Before</p><img class="zoomable" src="img/equivalence/step-before.png" alt="Original profile data upload page without steps" loading="lazy"></div>
+<div><p class="lab">After</p><img class="zoomable" src="img/equivalence/step-after.png" alt="Redesigned profile page with a fixed stepper" loading="lazy"></div></div>
+  <h4>02 Complete all required data</h4><p>The client needed four pieces of data to measure impact: <strong>user information</strong>, <strong>migration status</strong>, <strong>the Integration Scale</strong> and a <strong>PDF CV</strong>. We made these required and moved them to the front of the flow. Education and work experience became optional, so users can finish the essentials first without feeling overwhelmed.</p>
+<div class="ba"><div><p class="lab">Before</p><img class="zoomable" src="img/equivalence/data-before.png" alt="Original form with many dropdown sections" loading="lazy"></div>
+<div><p class="lab">After</p><img class="zoomable" src="img/equivalence/data-after.png" alt="Redesigned form with required fields first and a guided Integration Scale" loading="lazy"></div></div>
+  <h4>03 Request EQV CV easily</h4><p>The original “Request EQV CV” button sat at the bottom of a long form, so users often missed it. We added a <strong>Review page</strong> where users can check their answers before requesting, and made the button the main action on that page.</p>
+<div class="ba"><div><p class="lab">Before</p><img class="zoomable" src="img/equivalence/request-before.png" alt="Original long form with the request button at the bottom" loading="lazy"></div>
+<div><p class="lab">After</p><img class="zoomable" src="img/equivalence/request-after.png" alt="New Review page with the request button as the main action" loading="lazy"></div></div>
+  <figure class="" style="margin-top:56px"><img src="img/equivalence/all-screens.png" alt="All final screens of the redesigned EQV CV request flow" loading="lazy" class="zoomable"><figcaption class="m c">All final screens (click to enlarge)</figcaption></figure>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Outcome Evaluation</p>
+  <h2>What success will look like</h2>
+  <p>The redesign hasn’t launched yet, so these are the metrics we’d track to measure its impact.</p>
+  <table class="tbl blue"><tbody>
+    <tr><td><strong style="color:var(--blue)">Fewer drop-offs</strong></td><td><strong>Fewer users leave</strong> before reading the Review page</td></tr>
+    <tr><td><strong style="color:var(--blue)">More requests</strong></td><td>More users who upload their CV go on to click <strong>"Request EQV CV"</strong></td></tr>
+    <tr><td><strong style="color:var(--blue)">Complete data</strong></td><td>More users complete their personal details, migration status, Integration Scale and CV</td></tr>
+    <tr><td><strong style="color:var(--blue)">Clear steps</strong></td><td>Users understand each step faster</td></tr>
+  </tbody></table>
+</section>
+
+<section class="sec" data-auto>
+  <p class="lab">Reflection</p>
+  <h2>In this one-week sprint, I learned…</h2>
+  <div class="grid2" style="align-items:start">
+    <div class="card"><span class="t">Prioritise what matters most</span>The client started with a long list of ideal deliverables. With limited time, we went back and forth with them to agree on what mattered most, so we could make the most impact and deliver quick wins.<br>It was also a great experience working with a client from another country!</div>
+    <div class="card"><span class="t">Give the right task to the right person</span>I’d worked as a PM before, but this was my first time leading other designers.<br>With only one week, I learned to spot each teammate’s strengths early and assign tasks around them, so everyone could focus on what they did best.</div>
+  </div>
+  <figure class="" style="max-width:800px;margin:40px auto 0"><img src="img/equivalence/presenting.jpg" alt="Ellie presenting the redesign to the client and judges" loading="lazy" class="zoomable"><figcaption class="m c">Presenting our redesign to the client and judges</figcaption></figure>
+</section>
+
+<button class="backtop" type="button" data-top data-r>Back to top</button>
+<section class="others" data-r>
+  <h2>Other Works</h2>
+  <div class="grid3"><a href="project-ember" data-cursor="view"><div class="im"><img src="img/home/ember.jpg" alt="" loading="lazy"></div><span>Ember: AI chatbot for breast cancer screening</span></a><a href="project-skysports" data-cursor="view"><div class="im"><img src="img/home/skysports.jpg" alt="" loading="lazy"></div><span>Sky Sports: Improving Women's Football Discoverability</span></a><a href="project-metagigs" data-cursor="view"><div class="im"><img src="img/home/metagigs.jpg" alt="" loading="lazy"></div><span>Metagigs: Rebranding a Game Coaching Marketplace Website</span></a></div>
+</section>
+</div>
+</main>
+<footer class="foot" id="contact">
+  <p data-r>Curious about my work, or have thoughts to share?<br>I’d love to hear from you, let’s connect!</p>
+  <div class="row" data-r style="--d:.1s">
+    <a class="u" href="https://www.linkedin.com/in/yu-ru-lin-6860b21a0" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <button class="u" type="button" data-email>Email</button>
+  </div>
+  <div class="flowers" data-r style="--d:.2s">
+    <button type="button" aria-label="Flower 1"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 2"><img src="img/flower.png" alt=""></button>
+    <button type="button" aria-label="Flower 3"><img src="img/flower.png" alt=""></button>
+  </div>
+  <div class="found">You found all three. Thanks for exploring!</div>
+  <div class="copy">Copyright © Ellie Lin, 2026. All Rights Reserved</div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+
+</body>
+</html>
