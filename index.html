@@ -144,8 +144,8 @@ function layout(){
  const hero=document.querySelector('.hero'),hp=hero.querySelector('p');
  hero.style.paddingTop='';
  const textH=docTop(hp)+hp.offsetHeight-docTop(hi);
- hero.style.paddingTop=Math.round(Math.max(110,Math.min(vh-fh0*.7-90-textH,vh*.36)))+'px';
- const ftop=Math.max(docTop(hp)+hp.offsetHeight+60,vh-fh0*.7);
+ hero.style.paddingTop=Math.round(Math.max(110,Math.min(vh-fh0*.82-90-textH,vh<760?vh*.22:vh*.26)))+'px';
+ const ftop=Math.max(docTop(hp)+hp.offsetHeight+90,vh-fh0*.82);
  geo=cards.map((c,i)=>{
   const img=c.el.querySelector('.shot'),gw=img.offsetWidth,gh=img.offsetHeight;
   const gx=docLeft(c.el)+gw/2,gy=docTop(c.el)+gh/2;
