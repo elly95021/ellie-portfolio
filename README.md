@@ -9,7 +9,7 @@ Ellie Lin 的作品集網站，純 HTML／CSS／JS，不需要安裝任何套件
 - `project-ember.html`、`project-skysports.html`、`project-equivalence.html`、`project-metagigs.html`：四個 case study
 - `404.html`：找不到頁面時顯示
 - `assets/`：共用的樣式（site.css）、互動（site.js）、字體（fonts.css）
-- `img/`：所有圖片和影片，依頁面分資料夾
+- `about/`、`home/`、`ember/`、`skysports/`、`equivalence/`、`metagigs/`、`logo.png`、`flower.png`：圖片和影片，依頁面分資料夾
 - `vercel.json`：讓網址不用加 .html（例如 `/project-ember`）
 
 ## 部署到 Vercel
@@ -23,7 +23,7 @@ Ellie Lin 的作品集網站，純 HTML／CSS／JS，不需要安裝任何套件
 ## 之後要修改內容
 
 - 文字直接改對應的 `.html` 檔。
-- 換圖片時，把新檔案放進 `img/` 對應資料夾，再改 HTML 裡的檔名。
+- 換圖片時，把新檔案放進對應的資料夾，再改 HTML 裡的檔名。
 - 推到 GitHub 的 main 分支後，Vercel 會自動重新部署。
 
 ## 小彩蛋

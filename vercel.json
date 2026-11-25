@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/img/(.*)",
+      "source": "/(.*)\\.(png|jpg|jpeg|svg|mp4)",
       "headers": [
         {
           "key": "Cache-Control",
