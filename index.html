@@ -139,9 +139,13 @@ function layout(){
  fan=!reduce&&vw>=760&&vh>=560;
  document.body.classList.toggle('fan',fan);
  cards.forEach(c=>{c.el.style.transform='';c.el.style.zIndex='';c.el.querySelector('.wmeta').style.opacity='';c.el.classList.remove('fanned')});
- if(!fan)return;
- const fw=Math.min(vw*.22,380),sp=fw*.82;
- const hp=document.querySelector('.hero p'),ftop=docTop(hp)+hp.offsetHeight+Math.max(80,vh*.13);
+ if(!fan){document.querySelector('.hero').style.paddingTop='';return;}
+ const fw=Math.min(vw*.29,vh*.55,620),sp=fw*.8,fh0=fw/1.618;
+ const hero=document.querySelector('.hero'),hp=hero.querySelector('p');
+ hero.style.paddingTop='';
+ const textH=docTop(hp)+hp.offsetHeight-docTop(hi);
+ hero.style.paddingTop=Math.round(Math.max(110,Math.min(vh-fh0*.7-90-textH,vh*.36)))+'px';
+ const ftop=Math.max(docTop(hp)+hp.offsetHeight+60,vh-fh0*.7);
  geo=cards.map((c,i)=>{
   const img=c.el.querySelector('.shot'),gw=img.offsetWidth,gh=img.offsetHeight;
   const gx=docLeft(c.el)+gw/2,gy=docTop(c.el)+gh/2;
