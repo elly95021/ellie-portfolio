@@ -55,9 +55,13 @@ body:not(.fan) .scrollcue{display:flex}
 .big:hover svg{transform:translateX(14px) rotate(-45deg)}
 .big:hover .w{font-style:italic}
 @media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}}
+#ocean{position:absolute;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:screen;-webkit-mask:linear-gradient(#000 0%,transparent 80%);mask:linear-gradient(#000 0%,transparent 80%)}
+body[data-page=home] nav.top{background:none}
+body[data-page=home] main{position:relative;z-index:1}
 </style>
 </head>
 <body data-page="home">
+<div id="ocean" aria-hidden="true"></div>
 <nav class="top" aria-label="Main">
   <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="logo.png" alt="" width="40" height="40"></a>
   <div class="links">
@@ -109,6 +113,7 @@ body:not(.fan) .scrollcue{display:flex}
 <a class="cv" href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener"><span class="tab">CV</span><span>Grab my<br>résumé ↗</span></a>
 <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/shadergradient.js" defer></script>
 <script>
 {
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
