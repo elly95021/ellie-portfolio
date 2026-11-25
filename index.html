@@ -17,7 +17,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
-.hero h1{font:italic 400 clamp(38px,4.6vw,48px)/1.2 Fraunces,serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 20px}
+.hero h1{font:italic 400 clamp(40px,5.2vw,66px)/1.15 Fraunces,serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 20px}
 .hero h1 .ch{display:inline-block;transition:transform .35s cubic-bezier(.3,1.5,.5,1);will-change:transform}
 .hero p{max-width:640px;margin:0 auto;font-size:18px}
 .hero em{font-family:Fraunces,serif;font-weight:600;font-style:italic;color:var(--ink);cursor:default;transition:color .25s}
@@ -35,6 +35,8 @@ body:not(.fan) .scrollcue{display:flex}
 .wcard:hover .shot{border-color:rgba(205,228,254,.35)}
 .shot img,.shot video{width:100%;aspect-ratio:1.618;object-fit:cover;pointer-events:none;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .wcard:hover .shot img,.wcard:hover .shot video{transform:scale(1.04)}
+.shot video.live{position:absolute;inset:0;height:100%;opacity:1;transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.fanned .shot video.live{opacity:0}
 .desc{position:absolute;inset:auto 0 0;margin:0;padding:48px 20px 16px;font-size:15px;line-height:1.5;color:#fff;background:linear-gradient(transparent,rgba(12,14,19,.94) 45%);transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .wcard:hover .desc{transform:none}
 .fanned .desc{display:none}
@@ -81,7 +83,7 @@ body[data-page=home] main{position:relative;z-index:1}
 </header>
 <section id="works" class="wrap">
   <h2 data-r>Selected Works</h2>
-  <div class="wgrid" id="grid"><a class="wcard" href="project-ember" draggable="false" data-cursor="view"><div class="shot"><video src="ember/hero.mp4" poster="home/ember.jpg" muted loop playsinline autoplay preload="auto" data-auto-play draggable="false"></video><p class="desc">Investigated how a psychology-informed agent affects women's fear of breast screening and willingness to attend.</p></div><div class="wmeta"><h3>Ember: AI chatbot for breast cancer screening</h3><div class="tags"><span>UX Research</span><span>Conversational AI</span><span>Digital Health</span></div></div></a><a class="wcard" href="project-skysports" draggable="false" data-cursor="view"><div class="shot"><img src="home/skysports.jpg" alt="" draggable="false"><p class="desc">Redesigned the Sky Sports Scores app to increase the visibility of women's football and reduce the friction of following it.</p></div><div class="wmeta"><h3>Sky Sports: Improving Women's Football Discoverability</h3><div class="tags"><span>Product Design</span><span>B2C Mobile App</span><span>Media</span></div></div></a><a class="wcard" href="project-equivalence" draggable="false" data-cursor="view"><div class="shot"><img src="home/equivalence.jpg" alt="" draggable="false"><p class="desc">Equivalence is a platform that supports migrants. I optimized the onboarding flow to reduce the drop-off rate in form completion.</p></div><div class="wmeta"><h3>Equivalence: Reducing Onboarding Drop-off for Migrants</h3><div class="tags"><span>Information Architecture</span><span>Web App</span><span>Client Project</span></div></div></a><a class="wcard" href="project-metagigs" draggable="false" data-cursor="view"><div class="shot"><img src="home/metagigs.jpg" alt="" draggable="false"><p class="desc">Redesigned the Metagigs brand website to turn complex mechanics into a clear story about the product's value and long-term vision.</p></div><div class="wmeta"><h3>Metagigs: Rebranding a Game Coaching Marketplace Website</h3><div class="tags"><span>Branding</span><span>B2B Website</span><span>Gaming</span></div></div></a></div>
+  <div class="wgrid" id="grid"><a class="wcard" href="project-ember" draggable="false" data-cursor="view"><div class="shot"><img src="home/ember.jpg" alt="" draggable="false"><video class="live" src="ember/hero.mp4" muted loop playsinline preload="auto" draggable="false"></video><p class="desc">Investigated how a psychology-informed agent affects women's fear of breast screening and willingness to attend.</p></div><div class="wmeta"><h3>Ember: AI chatbot for breast cancer screening</h3><div class="tags"><span>UX Research</span><span>Conversational AI</span><span>Digital Health</span></div></div></a><a class="wcard" href="project-skysports" draggable="false" data-cursor="view"><div class="shot"><img src="home/skysports.jpg" alt="" draggable="false"><p class="desc">Redesigned the Sky Sports Scores app to increase the visibility of women's football and reduce the friction of following it.</p></div><div class="wmeta"><h3>Sky Sports: Improving Women's Football Discoverability</h3><div class="tags"><span>Product Design</span><span>B2C Mobile App</span><span>Media</span></div></div></a><a class="wcard" href="project-equivalence" draggable="false" data-cursor="view"><div class="shot"><img src="home/equivalence.jpg" alt="" draggable="false"><p class="desc">Equivalence is a platform that supports migrants. I optimized the onboarding flow to reduce the drop-off rate in form completion.</p></div><div class="wmeta"><h3>Equivalence: Reducing Onboarding Drop-off for Migrants</h3><div class="tags"><span>Information Architecture</span><span>Web App</span><span>Client Project</span></div></div></a><a class="wcard" href="project-metagigs" draggable="false" data-cursor="view"><div class="shot"><img src="home/metagigs.jpg" alt="" draggable="false"><p class="desc">Redesigned the Metagigs brand website to turn complex mechanics into a clear story about the product's value and long-term vision.</p></div><div class="wmeta"><h3>Metagigs: Rebranding a Game Coaching Marketplace Website</h3><div class="tags"><span>Branding</span><span>B2B Website</span><span>Gaming</span></div></div></a></div>
 </section>
 <section class="ai wrap">
   <h2 data-r>How I Work With AI</h2>
@@ -162,7 +164,11 @@ cards.forEach(c=>{
  el.addEventListener('pointerleave',()=>{c.hover=false;shot.style.setProperty('--rx','0deg');shot.style.setProperty('--ry','0deg')});
  el.addEventListener('pointermove',e=>{const b=shot.getBoundingClientRect();shot.style.setProperty('--ry',((e.clientX-b.left)/b.width-.5)*8+'deg');shot.style.setProperty('--rx',(.5-(e.clientY-b.top)/b.height)*8+'deg')});
 });
+const live=grid.querySelector('video.live');let liveVis=false,livePlay=null;
+if(live){new IntersectionObserver(es=>{liveVis=es[0].isIntersecting;syncLive()},{threshold:.2}).observe(live);}
+function syncLive(){if(!live)return;const fannedNow=live.closest('.wcard').classList.contains('fanned');const want=liveVis&&!fannedNow&&!reduce;if(want===livePlay)return;livePlay=want;if(want){live.play().catch(()=>{})}else{live.pause();if(fannedNow)live.currentTime=0;}}
 window.__onFrame&&window.__onFrame(()=>{
+ syncLive();
  if(!fan)return;
  const p=clamp(scrollY/end);
  cards.forEach((c,i)=>{
