@@ -28,9 +28,12 @@
   });
   $$('[data-top]').forEach(b => b.addEventListener('click', () => lenis ? lenis.scrollTo(0) : scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })));
 
+  const onScr = () => document.body.classList.toggle('scrolled', scrollY > innerHeight * 0.6);
+  onScr(); addEventListener('scroll', onScr, { passive: true });
+
   /* reveal on scroll */
   $$('[data-auto]').forEach(sec => [...sec.children].forEach((c, i) => { if (!c.hasAttribute('data-r')) { c.setAttribute('data-r', ''); } }));
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target; t.classList.add('in'); io.unobserve(t); setTimeout(() => { t.removeAttribute('data-r'); t.classList.remove('in'); }, 1400 + (parseFloat(t.style.getPropertyValue('--d')) || 0) * 1000); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   $$('[data-r]').forEach(el => io.observe(el));
 
   /* videos play only when visible */
@@ -122,23 +125,35 @@
     }));
   });
 
-  /* about: polaroid stack */
-  $$('.stack').forEach(st => {
-    const cards = $$('.polaroid', st); const rots = [-6, 4, -2, 7, -4];
-    let order = cards.map((_, i) => i);
-    const lay = () => order.forEach((ci, pos) => {
-      const c = cards[ci]; c.style.zIndex = cards.length - pos;
-      c.style.transform = `translate(${pos * 4}px,${pos * 4}px) rotate(${rots[ci % rots.length]}deg)`;
-    });
-    lay();
-    const next = () => {
-      const top = cards[order[0]];
-      if (!reduce) { top.style.transform = 'translate(120%,-10%) rotate(18deg)'; top.style.opacity = 0; }
-      setTimeout(() => { order.push(order.shift()); top.style.opacity = 1; lay(); }, reduce ? 0 : 320);
-    };
-    st.addEventListener('click', next);
-    st.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); } });
+  /* about: polaroids scatter on hover (tap on touch) */
+  $$('.scatter').forEach(sc => {
+    const fit = () => { const k = Math.min(1, (sc.parentElement.clientWidth) / 940); sc.style.transform = `scale(${k})`; sc.parentElement.style.height = 560 * k + 'px'; };
+    fit(); addEventListener('resize', fit);
+    sc.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') sc.classList.add('open'); });
+    sc.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') sc.classList.remove('open'); });
+    sc.addEventListener('click', () => { if (!fine) sc.classList.toggle('open'); });
+    sc.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sc.classList.toggle('open'); } });
   });
+
+  /* case study: contents sidebar */
+  const tocSecs = $$('[data-toc]');
+  if (tocSecs.length > 2) {
+    const toc = document.createElement('nav'); toc.className = 'toc'; toc.setAttribute('aria-label', 'Contents');
+    toc.innerHTML = '<div class="ticks" aria-hidden="true">' + tocSecs.map(() => '<i></i>').join('') + '</div><div class="panel"><span>Contents</span>' +
+      tocSecs.map((s, i) => `<a href="#" data-i="${i}">${s.dataset.toc}</a>`).join('') + '</div>';
+    document.body.appendChild(toc);
+    const ticks = $$('.ticks i', toc), links = $$('.panel a', toc);
+    links.forEach(a => a.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); const s = tocSecs[+a.dataset.i]; s === tocSecs[0] && s.classList.contains('cs-hero') ? (lenis ? lenis.scrollTo(0) : scrollTo(0, 0)) : scrollToEl(s, -100); }));
+    const foot = $('.others') || $('.foot');
+    const upd = () => {
+      let cur = 0; const y = innerHeight * 0.35;
+      tocSecs.forEach((s, i) => { if (s.getBoundingClientRect().top < y) cur = i; });
+      ticks.forEach((t, i) => t.classList.toggle('on', i === cur)); links.forEach((t, i) => t.classList.toggle('on', i === cur));
+      const fb = foot ? foot.getBoundingClientRect().top : 1e9;
+      toc.classList.toggle('on', fb > innerHeight * 0.6);
+    };
+    upd(); addEventListener('scroll', upd, { passive: true });
+  }
 
   /* main loop */
   const frameHooks = [];

@@ -17,7 +17,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
-.hero h1{font:italic 400 clamp(40px,5.6vw,72px)/1.1 Fraunces,serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 24px}
+.hero h1{font:italic 400 clamp(38px,4.6vw,48px)/1.2 Fraunces,serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 20px}
 .hero h1 .ch{display:inline-block;transition:transform .35s cubic-bezier(.3,1.5,.5,1);will-change:transform}
 .hero p{max-width:640px;margin:0 auto;font-size:18px}
 .hero em{font-family:Fraunces,serif;font-weight:600;font-style:italic;color:var(--ink);cursor:default;transition:color .25s}
@@ -27,7 +27,7 @@
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 body:not(.fan) .hero{height:auto;min-height:0;padding-bottom:80px}
 body:not(.fan) .scrollcue{display:flex}
-#works{padding:40px 0 60px}
+#works{padding-top:40px;padding-bottom:60px}
 #works h2,.ai h2{font:400 32px/1.2 Fraunces,serif;letter-spacing:-.03em;margin:0 0 32px}
 .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px}
 .wcard{display:block;position:relative;will-change:transform;-webkit-user-drag:none;user-select:none}
@@ -43,12 +43,12 @@ body:not(.fan) .scrollcue{display:flex}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;background:var(--pill);color:var(--soft);white-space:nowrap}
 .ai{padding:100px 0 60px;border-top:1px solid var(--line)}
-.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.step{background:#1c1f26;border:1px solid transparent;border-radius:14px;padding:22px 24px;transition:border-color .3s,transform .3s}
-.step:hover{border-color:rgba(205,228,254,.3);transform:translateY(-4px)}
-.step b{display:block;margin-bottom:6px}
-.step p{margin:0 0 10px;font-size:16px;line-height:1.65}
-.step small{font-size:13px;color:var(--soft)}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 36px}
+.step{background:#2d2d2d;border-radius:10px;padding:16px 20px;transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.step b{display:flex;align-items:center;gap:8px;font-size:18px;color:var(--blue)}
+.step b svg{flex:none}
+.step p{margin:0 0 8px;font-size:18px;line-height:1.75}
+.step small{font-size:16px;color:#a7a4a4}
 .aboutlink{text-align:center;padding:100px 0 20px;border-top:1px solid var(--line)}
 .big{display:inline-flex;align-items:center;gap:18px;font:400 clamp(44px,7vw,84px)/1 Fraunces,serif;letter-spacing:-.03em;color:var(--blue)}
 .big svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
@@ -56,14 +56,15 @@ body:not(.fan) .scrollcue{display:flex}
 .big:hover .w{font-style:italic}
 @media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}}
 #ocean{position:absolute;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:screen;-webkit-mask:linear-gradient(#000 0%,transparent 80%);mask:linear-gradient(#000 0%,transparent 80%)}
-body[data-page=home] nav.top{background:none}
+body[data-page=home] nav.top{background:none;transition:background .3s}
+body[data-page=home].scrolled nav.top{background:linear-gradient(var(--bg) 30%,transparent)}
 body[data-page=home] main{position:relative;z-index:1}
 </style>
 </head>
 <body data-page="home">
 <div id="ocean" aria-hidden="true"></div>
 <nav class="top" aria-label="Main">
-  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="logo.png" alt="" width="40" height="40"></a>
+  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="logo.png" alt="" width="40" height="40"><img class="fill" src="logo-fill.png" alt="" width="40" height="40"></a>
   <div class="links">
     <a href="#works">Work</a>
     <a href="about-me">About</a>
@@ -85,10 +86,10 @@ body[data-page=home] main{position:relative;z-index:1}
 <section class="ai wrap">
   <h2 data-r>How I Work With AI</h2>
   <div class="steps">
-    <div class="step" data-r><b>Research &amp; synthesis</b><p>I use AI to organise raw research data, like interview notes and survey responses, so I can spot patterns faster. But I still run the interviews and decide which insights matter myself.</p><small>Tools: Claude</small></div>
-    <div class="step" data-r style="--d:.1s"><b>Ideation &amp; pressure-testing</b><p>After mapping ideas myself, I use AI to generate more options and challenge my assumptions, so I can find gaps before testing with users.</p><small>Tools: Claude, Figjam</small></div>
-    <div class="step" data-r style="--d:.2s"><b>Prototyping in code</b><p>I design the key screens in Figma first, then build them with Claude Code into working prototypes. This lets me test real interactions instead of static screens.</p><small>Tools: Figma, Claude Code, GitHub, Vercel</small></div>
-    <div class="step" data-r style="--d:.3s"><b>Testing</b><p>Before testing with real users, I go through my prototypes with the unexpected things people might do, to find where they break. Since I build them with Claude Code, I can fix issues and test again quickly.</p><small>Tools: Claude Code</small></div>
+    <div class="step tilt" data-r><b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>Research &amp; synthesis</b><p>I use AI to organise raw research data, like interview notes and survey responses, so I can spot patterns faster. But I still run the interviews and decide which insights matter myself.</p><small>Tools: Claude</small></div>
+    <div class="step tilt" data-r style="--d:.1s"><b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>Ideation &amp; pressure-testing</b><p>After mapping ideas myself, I use AI to generate more options and challenge my assumptions, so I can find gaps before testing with users.</p><small>Tools: Claude, Figjam</small></div>
+    <div class="step tilt" data-r style="--d:.2s"><b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Prototyping in code</b><p>I design the key screens in Figma first, then build them with Claude Code into working prototypes. This lets me test real interactions instead of static screens.</p><small>Tools: Figma, Claude Code, GitHub, Vercel</small></div>
+    <div class="step tilt" data-r style="--d:.3s"><b><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>Testing</b><p>Before testing with real users, I go through my prototypes with the unexpected things people might do, to find where they break. Since I build them with Claude Code, I can fix issues and test again quickly.</p><small>Tools: Claude Code</small></div>
   </div>
 </section>
 <section class="aboutlink wrap">
@@ -110,7 +111,6 @@ body[data-page=home] main{position:relative;z-index:1}
   <div class="found">You found all three. Thanks for exploring!</div>
   <div class="copy">Copyright © Ellie Lin, 2026. All Rights Reserved</div>
 </footer>
-<a class="cv" href="https://drive.google.com/file/d/1aNke7boIJ8VN33cvYoO1pvofxrcK3HsS/view?usp=sharing" target="_blank" rel="noopener"><span class="tab">CV</span><span>Grab my<br>résumé ↗</span></a>
 <script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/shadergradient.js" defer></script>
@@ -141,10 +141,11 @@ function layout(){
  cards.forEach(c=>{c.el.style.transform='';c.el.style.zIndex='';c.el.querySelector('.wmeta').style.opacity='';c.el.classList.remove('fanned')});
  if(!fan)return;
  const fw=Math.min(vw*.22,380),sp=fw*.82;
+ const hp=document.querySelector('.hero p'),ftop=docTop(hp)+hp.offsetHeight+Math.max(80,vh*.13);
  geo=cards.map((c,i)=>{
   const img=c.el.querySelector('.shot'),gw=img.offsetWidth,gh=img.offsetHeight;
   const gx=docLeft(c.el)+gw/2,gy=docTop(c.el)+gh/2;
-  const fh=fw/1.618,fx=vw/2+(i-1.5)*sp,fy=vh*.66+fh/2+arc[i]*vw;
+  const fh=fw/1.618,fx=vw/2+(i-1.5)*sp,fy=ftop+fh/2+arc[i]*vw;
   c.el.style.transformOrigin=`50% ${gh/2}px`;
   return {dx:fx-gx,dy:fy-gy,s:fw/gw};
  });
