@@ -262,7 +262,7 @@ details.rq .body{padding-top:22px}
 .toc .ticks i{display:block;width:12px;height:1.5px;border-radius:2px;background:rgba(255,255,255,.55);transition:background .3s,width .3s}
 .toc .ticks i.on{background:#fff;width:14px}
 .toc .panel{background:#262626;border-radius:12px;padding:16px;width:258px;font-size:14px;line-height:1.4;opacity:0;transform:translateX(-8px);pointer-events:none;transition:opacity .25s,transform .3s}
-.toc:hover .panel,.toc:focus-within .panel{opacity:1;transform:none;pointer-events:auto}
+.toc:hover .panel,.toc:has(a:focus-visible) .panel{opacity:1;transform:none;pointer-events:auto}
 .toc .panel span{display:block;color:#a7a4a4;margin-bottom:6px}
 .toc .panel a{display:block;padding:5px 0;color:#fff;transition:color .2s}
 .toc .panel a:hover,.toc .panel a.on{color:var(--blue)}

@@ -143,7 +143,7 @@
       tocSecs.map((s, i) => `<a href="#" data-i="${i}">${s.dataset.toc}</a>`).join('') + '</div>';
     document.body.appendChild(toc);
     const ticks = $$('.ticks i', toc), links = $$('.panel a', toc);
-    links.forEach(a => a.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); const s = tocSecs[+a.dataset.i]; s === tocSecs[0] && s.classList.contains('cs-hero') ? (lenis ? lenis.scrollTo(0) : scrollTo(0, 0)) : scrollToEl(s, -100); }));
+    links.forEach(a => a.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); a.blur(); const s = tocSecs[+a.dataset.i]; s === tocSecs[0] && s.classList.contains('cs-hero') ? (lenis ? lenis.scrollTo(0) : scrollTo(0, 0)) : scrollToEl(s, -100); }));
     const foot = $('.others') || $('.foot');
     const upd = () => {
       let cur = 0; const y = innerHeight * 0.35;
