@@ -470,3 +470,22 @@ details.more[open]>summary{margin-bottom:8px}
 html[data-theme=light] .peek{background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(62,54,50,.12)}
 @media (pointer:coarse){.peek{display:none}}
 .persona .tags-row{grid-column:1/-1;margin-top:0;justify-content:flex-start}
+.sec.no-line{border-top:0;padding-top:24px}
+.drop-line{display:flex;justify-content:center;margin:20px 0 0}
+.drop-line i{display:block;width:1.5px;height:72px;background:linear-gradient(var(--blue),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:760px){
+ body{font-size:16px;line-height:1.7}
+ html[lang=zh-Hant] body{font-size:15px}
+ .persona{display:grid}
+ .persona .who{order:0}.persona .tags-row{order:1;margin-top:-8px}.persona .who+div{order:2}
+}
+.persona .tags span{font-size:14px;padding:2px 11px}
+@media(max-width:760px){
+ .cs h1{font-size:26px}.cs h2{font-size:22px}.cs h3{font-size:18px}.cs h3.big{font-size:19px}.cs h4{font-size:19px}
+ figcaption,.ba-panel p,.skip{font-size:15px}
+ .meta dd,.cv-item,.about-top p,.skill-text{font-size:15px}
+ html[lang=zh-Hant] .cs h2{font-size:21px}html[lang=zh-Hant] .cs h3{font-size:17px}
+ .persona{font-size:14.5px}.persona .tags span{font-size:13px}
+}
+@media(max-width:760px){.persona{padding:20px 20px;gap:16px}.persona img{width:120px}.persona .tags-row{gap:5px;flex-wrap:nowrap;margin-top:-4px}.persona .tags span{font-size:12.5px;padding:1px 9px;white-space:nowrap}}
