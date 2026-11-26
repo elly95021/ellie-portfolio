@@ -381,10 +381,20 @@ html[data-theme=light] #intro .waves .w1,html[data-theme=light] #intro .waves .w
 #intro.fade-text .hello{opacity:0}
 
 /* language toggle + Chinese typography */
-.lang{display:grid;place-items:center;min-width:40px;height:40px;padding:0 10px;border:0;border-radius:999px;background:var(--pill);color:var(--ink);font:500 14px/1 Satoshi,system-ui,sans-serif;letter-spacing:.02em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .25s}
-.lang:hover{background:rgba(205,228,254,.28)}
-html[data-theme=light] .lang:hover{background:rgba(0,0,0,.08)}
-@media(max-width:760px){.lang{min-width:34px;height:34px;font-size:13px}.nav-r{gap:8px}}
+.langsel{position:relative}
+.lang{display:flex;align-items:center;gap:4px;height:40px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .25s}
+.lang svg{margin:0}
+.lang .caret{transition:transform .25s}
+.langsel.open .lang .caret{transform:rotate(180deg)}
+.lang:hover,.langsel.open .lang{background:var(--pill)}
+.langmenu{position:absolute;right:0;top:calc(100% + 8px);min-width:140px;padding:6px;border-radius:12px;background:#22242a;box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s;z-index:60}
+.langsel.open .langmenu{opacity:1;transform:none;pointer-events:auto}
+.langmenu button{display:block;width:100%;padding:9px 12px;border:0;border-radius:8px;background:none;color:var(--ink);font:400 15px/1.3 Satoshi,system-ui,sans-serif;text-align:left;cursor:pointer}
+.langmenu button:hover{background:var(--pill)}
+.langmenu button.on{color:var(--blue);font-weight:600}
+html[data-theme=light] .langmenu{background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+@media(max-width:760px){.lang{height:34px;width:34px;padding:0;justify-content:center}.lang .caret{display:none}.nav-r{gap:4px}}
+.lang:focus:not(:focus-visible){outline:none}
 html[lang=zh-Hant]{font-synthesis-style:none}
 html[lang=zh-Hant] body{letter-spacing:.03em}
 html[lang=zh-Hant] :is(p,li,figcaption){line-height:1.85}

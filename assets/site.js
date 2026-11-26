@@ -44,12 +44,14 @@
     $$('[data-toc]').forEach(s => { const z = ZH.toc[s.dataset.toc]; if (z) s.dataset.toc = z; });
     if (ZH.title[document.title]) document.title = ZH.title[document.title];
   }
-  $$('.lang').forEach(b => {
-    b.textContent = ZH ? 'EN' : '中';
-    b.setAttribute('aria-label', ZH ? 'Switch to English' : '切換成中文');
-    b.addEventListener('click', () => { try { localStorage.setItem('lang', ZH ? 'en' : 'zh'); } catch (e) {} location.reload(); });
+  $$('.langsel').forEach(w => {
+    const btn = $('.lang', w), cur = ZH ? 'zh' : 'en';
+    $$('[data-lang]', w).forEach(o => { o.classList.toggle('on', o.dataset.lang === cur); o.addEventListener('click', () => { if (o.dataset.lang !== cur) { try { localStorage.setItem('lang', o.dataset.lang); } catch (e) {} location.reload(); } else close(); }); });
+    const close = () => { w.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', e => { e.stopPropagation(); const o = !w.classList.contains('open'); w.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', e => { if (!w.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   });
-
   /* smooth scroll */
   let lenis = null;
   if (!reduce && window.Lenis) lenis = new Lenis({ lerp: 0.09 });
