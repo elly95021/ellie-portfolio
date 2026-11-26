@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=18">
+<link rel="stylesheet" href="assets/site.css?v=19">
 <script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
@@ -28,7 +28,7 @@
 body:not(.fan) .hero{height:auto;min-height:0;padding-bottom:80px}
 body:not(.fan) .scrollcue{display:flex}
 #works{padding-top:40px;padding-bottom:60px}
-#works h2,.ai h2{font:400 32px/1.2 Fraunces,serif;letter-spacing:-.03em;margin:0 0 32px}
+#works h2,.ai h2{font:400 24px/1.4 Fraunces,serif;letter-spacing:-.01em;margin:0 0 28px}
 .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px}
 .wcard{display:block;position:relative;will-change:transform;-webkit-user-drag:none;user-select:none}
 .shot{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card2);box-shadow:0 20px 50px -18px rgba(0,0,0,var(--sh,.3));transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s,border-color .3s}
@@ -56,12 +56,12 @@ body:not(.fan) .scrollcue{display:flex}
 .big svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .big:hover svg{transform:translateX(14px) rotate(-45deg)}
 .big:hover .w{font-style:italic}
-@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:26px;margin-bottom:22px}.hero h1{font-size:34px}.hero p{font-size:15px;line-height:1.75;text-align:left}.big{font-size:36px;gap:12px}.big svg{width:30px;height:30px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
+@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:21px;margin-bottom:20px}.hero h1{font-size:34px}.hero p{font-size:15px;line-height:1.75;text-align:left}.big{font-size:36px;gap:12px}.big svg{width:30px;height:30px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
 #ocean{position:absolute;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:screen;-webkit-mask:linear-gradient(#000 0%,transparent 80%);mask:linear-gradient(#000 0%,transparent 80%)}
 body[data-page=home] nav.top{background:none;transition:background .3s}
 body[data-page=home].scrolled nav.top{background:linear-gradient(var(--bg) 30%,transparent)}
 body[data-page=home] main{position:relative;z-index:1}
-html[data-theme=light] #ocean{mix-blend-mode:multiply;opacity:.45;filter:invert(1) sepia(1) saturate(1.3) hue-rotate(-12deg)}
+html[data-theme=light] #ocean{display:none}
 </style>
 </head>
 <body data-page="home">
