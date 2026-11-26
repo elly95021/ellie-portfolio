@@ -288,6 +288,7 @@ svg[viewBox="0 0 256 256"]{display:inline-block;vertical-align:-.18em;margin-rig
 /* per-letter titles: room for italic overhangs so Safari doesn't clip them */
 .ch{padding:.12em .18em;margin:-.12em -.18em}
 /* phone nav: links only */
+@media(min-width:761px){nav.top{display:grid;grid-template-columns:1fr auto 1fr}nav.top .nav-r{justify-self:end}nav.top>:first-child{justify-self:start}}
 @media(max-width:760px){nav.top .logo,nav.top .pill{display:none}nav.top{justify-content:center}.links{gap:32px;font-size:15px}}
 
 /* phone layout, following the Framer phone version */
