@@ -435,10 +435,15 @@ html[lang=zh-Hant] .persona{flex-basis:62%;max-width:780px}
 @media(max-width:760px){
  nav.top .logo{display:block;width:34px;height:34px}nav.top .logo img{width:34px;height:34px}
  .nav-r{position:static!important;transform:none!important}
- nav.top .links{position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;align-items:center;gap:26px;padding:14px 22px calc(14px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line);font-size:16px}
+ nav.top .links{position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;align-items:center;gap:26px;padding:14px 22px calc(14px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-size:16px;transition:background .35s,backdrop-filter .35s}
+ nav.top .links.at-end{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .foot .row{display:none}
+ .foot{padding-bottom:calc(36px + 66px + env(safe-area-inset-bottom))}
+ nav.top,html body[data-page=home].scrolled nav.top{background:var(--bg)}
+ html body[data-page=home]:not(.scrolled) nav.top::after{display:none}
+ nav.top::after{content:"";position:absolute;left:0;right:0;top:100%;height:22px;background:linear-gradient(var(--bg),transparent);pointer-events:none}
  .links a::after{display:none}
  .links a[aria-current]{font-weight:700}
  .m-ico{display:flex;align-items:center;gap:20px;margin-left:auto}
  .m-ico a,.m-ico button{display:grid;place-items:center;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
- body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
 }

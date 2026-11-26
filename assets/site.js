@@ -174,6 +174,8 @@
       if (p.life <= 0 || p.y > innerHeight + 60) { p.im.remove(); petals.splice(k, 1); }
     }
   }
+  { const bar = $('nav.top .links');
+    if (bar) { const chk = () => bar.classList.toggle('at-end', innerWidth <= 760 && scrollY + innerHeight >= document.documentElement.scrollHeight - 4); addEventListener('scroll', chk, { passive: true }); addEventListener('resize', chk); chk(); } }
   $$('details.rq summary').forEach(su => su.dataset.tip = L('Click to view details'));
   const logo = $('.logo');
   if (logo) {
