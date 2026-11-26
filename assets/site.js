@@ -177,7 +177,7 @@
   const logo = $('.logo');
   if (logo) {
     const tip = document.createElement('div'); tip.className = 'logo-tip'; tip.setAttribute('aria-hidden', 'true');
-    tip.textContent = document.body.dataset.page === 'home' ? L('Click to make it bloom ✿') : L('Back home');
+    tip.textContent = document.body.dataset.page === 'home' ? L('Click to make it bloom') : L('Back home');
     document.body.appendChild(tip);
     const show = () => { const b = logo.getBoundingClientRect(); tip.style.left = b.left + 'px'; tip.style.top = (b.bottom + 10) + 'px'; tip.classList.add('on'); };
     const hide = () => tip.classList.remove('on');

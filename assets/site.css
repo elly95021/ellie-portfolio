@@ -159,12 +159,17 @@ figcaption.m{font-style:normal;color:var(--label)}
 .tbl tr:last-child td{border-bottom:0}
 .tbl td:first-child{font-weight:700;white-space:nowrap}
 .tbl.blue td:first-child{color:var(--blue);font-weight:400}
-details.rq{margin:30px 0 10px}
-details.rq summary{display:inline-flex;align-items:center;gap:8px;list-style:none;background:var(--chip);color:#131519;font-size:16px;font-weight:500;padding:4px 14px;border-radius:6px;cursor:pointer}
+details.rq{margin:30px 0 0}
+details.rq summary{display:inline-flex;align-items:center;gap:8px;list-style:none;background:var(--chip);color:#131519;font-size:16px;font-weight:500;padding:4px 14px;border-radius:6px;cursor:pointer;transition:border-radius .3s}
 details.rq summary::-webkit-details-marker{display:none}
-details.rq summary::after{content:"";width:8px;height:8px;border-right:1.6px solid;border-bottom:1.6px solid;transform:rotate(45deg) translateY(-3px);transition:transform .3s}
-details.rq[open] summary::after{transform:rotate(-135deg) translate(-2px,-1px)}
-details.rq .body{padding-top:22px}
+details.rq summary::after{content:"";flex:none;width:8px;height:8px;border-right:1.6px solid;border-bottom:1.6px solid;transform:rotate(45deg) translateY(-3px);transition:transform .3s}
+details.rq .q{display:none}
+details.rq[open] summary{display:flex;flex-direction:column;align-items:flex-start;max-width:620px;padding:18px 22px 16px;border-radius:14px;font-size:17px;font-weight:400;line-height:1.75}
+details.rq[open] .s{display:none}
+details.rq[open] .q{display:block}
+details.rq .q b{display:block;font-weight:500;color:inherit}
+details.rq[open] summary::after{align-self:center;margin-top:10px;transform:rotate(-135deg)}
+.rqbody{padding-top:22px}
 .measure{color:var(--muted)}
 .circle{font-weight:700}
 .persona-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin:24px 0 8px;scrollbar-width:none}
@@ -397,7 +402,10 @@ html[data-theme=light] .lang:hover,html[data-theme=light] .langsel.open .lang{fi
 html[data-theme=light] .langmenu{background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.1)}
 @media(max-width:760px){.lang{height:34px;width:34px;padding:0;justify-content:center}.lang .caret{display:none}.nav-r{gap:4px}}
 .lang:focus:not(:focus-visible){outline:none}
-:root{--cjk:"PingFang TC","PingFang SC","Noto Sans TC","Noto Sans CJK TC","Microsoft JhengHei"}
+@font-face{font-family:ZH;src:local("PingFangTC-Regular"),local("NotoSansCJKtc-Regular"),local("MicrosoftJhengHeiRegular");font-weight:100 449;unicode-range:U+2E80-9FFF,U+F900-FAFF,U+FE30-FE4F,U+FF00-FFEF;size-adjust:92%}
+@font-face{font-family:ZH;src:local("PingFangTC-Medium"),local("NotoSansCJKtc-Medium"),local("MicrosoftJhengHeiRegular");font-weight:450 549;unicode-range:U+2E80-9FFF,U+F900-FAFF,U+FE30-FE4F,U+FF00-FFEF;size-adjust:92%}
+@font-face{font-family:ZH;src:local("PingFangTC-Semibold"),local("NotoSansCJKtc-Bold"),local("MicrosoftJhengHeiBold");font-weight:550 1000;unicode-range:U+2E80-9FFF,U+F900-FAFF,U+FE30-FE4F,U+FF00-FFEF;size-adjust:92%}
+:root{--cjk:ZH,"PingFang TC","PingFang SC","Noto Sans TC","Noto Sans CJK TC","Microsoft JhengHei"}
 html[lang=zh-Hant]{font-synthesis-style:none}
 html[lang=zh-Hant] body{letter-spacing:.03em}
 html[lang=zh-Hant] :is(p,li,figcaption){line-height:1.85}
@@ -408,3 +416,4 @@ html[lang=zh-Hant] .hero em{font-weight:700;color:var(--ink)}
 .logo-tip.on{opacity:1;transform:none}
 @media(hover:none){.logo-tip{display:none}}
 html[data-theme=light] .logo-tip{background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+html[lang=zh-Hant] .hero p .bal{display:inline-block;text-wrap:balance}
