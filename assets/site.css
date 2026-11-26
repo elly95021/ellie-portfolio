@@ -456,3 +456,4 @@ html[lang=zh-Hant] .foot>p:first-child{display:none}
  body[data-page=home] #works{padding-top:40px}
 }
 @keyframes cuebob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.vframe.bare{background:none;padding:0;max-width:960px}.vframe.bare video{border-radius:14px}
