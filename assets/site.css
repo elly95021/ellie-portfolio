@@ -425,3 +425,6 @@ details.rq:not([open]) summary:hover::before{opacity:1;transform:none}
 html[data-theme=light] details.rq summary::before{background:#fff;color:#2b2b2b;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 @media(hover:none){details.rq summary::before{display:none}}
 html[lang=zh-Hant] .foot p{font-size:18px;letter-spacing:.06em}
+html[lang=zh-Hant] .persona{flex-basis:78%;padding:20px 24px;font-size:15.5px;grid-template-columns:180px minmax(0,1fr)}
+html[lang=zh-Hant] .persona h5{font-size:18px}
+html[lang=zh-Hant] .persona img{width:115px}
