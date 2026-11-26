@@ -185,11 +185,11 @@
     document.body.appendChild(tip);
     let armed = false, tt;
     const show = () => { const b = logo.getBoundingClientRect(); tip.style.left = b.left + 'px'; tip.style.top = (b.bottom + 10) + 'px'; tip.classList.add('on'); };
-    const hide = () => { tip.classList.remove('on'); armed = false; clearTimeout(tt); };
+    const hide = () => { tip.classList.remove('on'); logo.classList.remove('armed'); armed = false; clearTimeout(tt); };
     if (!touch) { logo.addEventListener('mouseenter', show); logo.addEventListener('mouseleave', hide); }
     if (home) logo.addEventListener('click', e => {
       e.preventDefault();
-      if (touch && !armed) { tip.textContent = L('Tap again to make it bloom'); show(); armed = true; clearTimeout(tt); tt = setTimeout(hide, 3000); return; }
+      if (touch && !armed) { tip.textContent = L('Tap again to make it bloom'); show(); logo.classList.add('armed'); logo.blur(); armed = true; clearTimeout(tt); tt = setTimeout(hide, 3000); return; }
       hide();
       const b = logo.getBoundingClientRect(); burst(b.left + 20, b.top + 20, 18); history.replaceState(null, '', location.pathname); lenis ? lenis.scrollTo(0, { duration: 1.4 }) : scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     });
