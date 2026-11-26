@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css?v=46">
-<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}(function(){try{var force=new URLSearchParams(location.search).has('intro'),seen=sessionStorage.getItem('introSeen');if((force||!seen)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='a';sessionStorage.setItem('introSeen','1');window.__introWait=new Promise(function(r){window.__introDone=r})}}catch(e){}})();try{if(localStorage.getItem('lang')==='zh')document.write('<script src="assets/zh.js?v=22"><\/script>')}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}(function(){try{var force=new URLSearchParams(location.search).has('intro'),seen=sessionStorage.getItem('introSeen');if((force||!seen)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='a';sessionStorage.setItem('introSeen','1');window.__introWait=new Promise(function(r){window.__introDone=r})}}catch(e){}})();try{if(localStorage.getItem('lang')==='zh')document.write('<script src="assets/zh.js?v=23"><\/script>')}catch(e){}</script>
 
 </head>
 <body data-page="case">
@@ -30,29 +30,21 @@
 </nav>
 <main id="top">
 <div class="cs">
-<header class="cs-hero" style="padding-top:120px">
+<header class="cs-hero" data-toc="Overview">
   <div data-r><div class="laptop" style="max-width:503px"><div class="scr"><video src="metagigs/hero.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div><div class="base"></div></div></div>
   <img class="mg-logo" src="metagigs/logo.png" alt="Metagigs logo" data-r>
-  <h1 class="center" data-r style="margin-top:0">Refreshing the original Metagigs brand website experience</h1>
+  <h1 data-r>Rebranding a Game Coaching Marketplace Website</h1>
+  <div class="intro">
+    <div data-r><p>Metagigs is a game coaching marketplace that helps studios boost player retention through customised training and progression systems.</p>
+<p>For this <b>US client</b>, I redesigned the brand website to turn complex mechanisms into a <b>clear story</b> for investors and partners, and set up a <b>design system</b> for handoff to the front-end engineer. The new site <b>launched</b> after a one-month design and build.</p></div>
+    <dl class="meta" data-r style="--d:.15s"><dt>Role</dt><dd>UI/UX Designer</dd><dt>What I did</dt><dd>Information architecture, visual design, design system, 3D visual assets</dd><dt>Team</dt><dd>1 designer, 1 front-end engineer, 1 project manager</dd><dt>Tools</dt><dd>Figma, Adobe Firefly</dd><dt>Duration</dt><dd>1 month</dd></dl>
+  </div>
+  <a class="skip" href="#final-design" data-r>Skip to final design</a>
 </header>
 
-<section class="sec flush" data-auto data-toc="Overview">
-  <h2 style="font-weight:400">Overview</h2>
-  <p>Metagigs is a game coaching marketplace designed to help studios boost player retention through customized training and progression systems.</p>
-  <p>By redesigning its official brand website, I transformed complex mechanisms into a clear and engaging narrative that highlights both the product’s value and long-term vision.</p>
-</section>
-
-<section class="sec" style="padding:36px 0" data-auto>
-  <dl class="grid2" style="margin:0;gap:12px 40px">
-    <div><dt class="lab">My Role</dt><dd style="margin:0">UXUI Designer</dd></div>
-    <div><dt class="lab">Team</dt><dd style="margin:0">UXUI Designer*1, Front-end Engineer*1, Project Manager*1</dd></div>
-    <div><dt class="lab">Duration</dt><dd style="margin:0">1 month</dd></div>
-    <div><dt class="lab">Tools</dt><dd style="margin:0">Figma</dd></div>
-  </dl>
-</section>
-
 <section class="sec" data-auto data-toc="Goal">
-  <h2>Goal</h2>
+  <p class="lab">Goal</p>
+  <h2>Make the product’s value clear to investors</h2>
   <p>Enhance the Metagigs brand website by improving its information architecture, visual hierarchy, and overall user experience, ensuring that the platform’s mechanisms and value are communicated more effectively to investors and potential stakeholders.</p>
   <h2 class="center" style="font-size:30px;font-weight:500;margin:60px auto 28px">Let's see the final redesign website first</h2>
   <div class="vframe wide"><video src="metagigs/final-site.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div>
@@ -80,7 +72,7 @@
   <p class="center">↓</p>
 </section>
 
-<section class="sec" data-auto data-toc="Design Solution">
+<section class="sec" id="final-design" data-auto data-toc="Design Solution">
   <p class="lab">Design Solution</p>
   <h2>Shaping the New Metagigs Website</h2>
   <p>The redesigned interface prioritizes clear information hierarchy and intuitive navigation, enabling investors to quickly grasp Metagigs' value proposition and core mechanisms.</p>
@@ -90,6 +82,14 @@
   <div class="vframe"><img class="zoomable" src="metagigs/value-drivers.png" alt="Redesigned value section with three pillars: Retention Booster, New Revenue Stream, Community Builder" loading="lazy"></div><ul class="ticks"><li>Clearly framed the platform’s unique value for retention, monetization, and community</li><li>Organized benefits into three concise pillars for faster understanding</li><li>Strengthened visuals and copy to better align with investor expectations</li></ul>
   <h3 class="center" style="color:var(--blue);font-weight:500;margin-top:64px">03 Clarifying the Journey</h3>
   <div class="vframe"><video src="metagigs/journey.mp4" class="" muted loop playsinline preload="metadata" data-auto-play></video></div><ul class="ticks"><li>Simplified the flow into three clear steps</li><li>Enhanced readability with visual hierarchy</li><li>Aligned tone for a consistent brand voice</li></ul>
+</section>
+<section class="sec" data-auto data-toc="Design System">
+  <p class="lab">Design System</p>
+  <h2>A design system for a smooth handoff</h2>
+  <p>To keep the site consistent and make handoff to the front-end engineer easier, I set up a lightweight design system: <b>logo usage</b>, a <b>colour palette</b> with primary, secondary and neutral scales, and a <b>Montserrat type scale</b>.</p>
+  <div class="grid2" style="align-items:start"><img class="zoomable" src="metagigs/ds-color.jpg" alt="Metagigs logo variations and colour palette" loading="lazy" style="border-radius:12px"><img class="zoomable" src="metagigs/ds-type.jpg" alt="Metagigs typography scale in Montserrat" loading="lazy" style="border-radius:12px"></div>
+  <p style="margin-top:40px">I also created a set of <b>3D illustrations</b> with AI image tools, then refined them to match the brand palette, so every section had visuals in one consistent style.</p>
+  <img class="zoomable" src="metagigs/ds-3d.jpg" alt="Set of six 3D illustrations: shop, target, trophy, controller, gaming setup and money" loading="lazy" style="border-radius:12px">
 </section>
 <button class="backtop" type="button" data-top data-r>Back to top</button>
 <section class="others" data-r>
