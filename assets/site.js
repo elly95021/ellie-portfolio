@@ -150,6 +150,12 @@
     });
     addEventListener('pointerdown', () => ring.classList.add('down'));
     addEventListener('pointerup', () => ring.classList.remove('down'));
+    const peek = document.createElement('div'); peek.className = 'peek'; peek.setAttribute('aria-hidden', 'true'); document.body.appendChild(peek);
+    addEventListener('pointermove', e => {
+      const c = e.target.closest && e.target.closest('.wcard.fanned[data-peek]');
+      if (c) { const t = L(c.dataset.peek); if (peek.textContent !== t) peek.textContent = t; peek.style.transform = `translate(${e.clientX + 26}px, ${e.clientY + 30}px)`; peek.classList.add('on'); }
+      else peek.classList.remove('on');
+    });
     document.addEventListener('pointerleave', () => { cur.classList.remove('on'); ring.classList.remove('on'); });
   }
 
