@@ -424,3 +424,4 @@ details.rq summary::before{content:attr(data-tip);position:absolute;left:0;botto
 details.rq:not([open]) summary:hover::before{opacity:1;transform:none}
 html[data-theme=light] details.rq summary::before{background:#fff;color:#2b2b2b;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 @media(hover:none){details.rq summary::before{display:none}}
+html[lang=zh-Hant] .foot p{font-size:18px;letter-spacing:.06em}
