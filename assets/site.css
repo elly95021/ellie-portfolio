@@ -492,3 +492,10 @@ html[data-theme=light] .peek{background:rgba(255,255,255,.95);box-shadow:0 8px 2
 .meta img.logo-light{display:none}
 html[data-theme=light] .meta img.logo-dark{display:none}
 html[data-theme=light] .meta img.logo-light{display:inline-block;filter:none}
+img.logo-light{display:none}
+html[data-theme=light] img.logo-dark{display:none}
+html[data-theme=light] img.logo-light{display:block;filter:none}
+html[data-theme=light] .meta img.logo-light{display:inline-block}
+.persona{align-content:start;align-items:start}
+.persona .tags-row{align-items:center;align-self:start}
+.persona .tags span{line-height:1.6}
