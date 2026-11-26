@@ -448,3 +448,11 @@ html[lang=zh-Hant] .persona{flex-basis:62%;max-width:780px}
  .m-ico a,.m-ico button{display:grid;place-items:center;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
 }
 html[lang=zh-Hant] .foot>p:first-child{display:none}
+@media(max-width:760px){
+ body[data-page=home]:not(.fan) .hero{padding-top:128px;padding-bottom:28px}
+ body[data-page=home] .scrollcue{margin-top:36px;flex-direction:row;justify-content:flex-start;gap:8px}
+ body[data-page=home] .scrollcue i{width:auto;height:auto;background:none;animation:cuebob 1.8s ease-in-out infinite;font-style:normal}
+ body[data-page=home] .scrollcue i::before{content:"↓"}
+ body[data-page=home] #works{padding-top:40px}
+}
+@keyframes cuebob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}

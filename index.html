@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=44">
-<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}(function(){try{var force=new URLSearchParams(location.search).has('intro'),seen=sessionStorage.getItem('introSeen');if((force||!seen)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='a';sessionStorage.setItem('introSeen','1');window.__introWait=new Promise(function(r){window.__introDone=r})}}catch(e){}})();try{if(localStorage.getItem('lang')==='zh')document.write('<script src="assets/zh.js?v=20"><\/script>')}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css?v=46">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}(function(){try{var force=new URLSearchParams(location.search).has('intro'),seen=sessionStorage.getItem('introSeen');if((force||!seen)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='a';sessionStorage.setItem('introSeen','1');window.__introWait=new Promise(function(r){window.__introDone=r})}}catch(e){}})();try{if(localStorage.getItem('lang')==='zh')document.write('<script src="assets/zh.js?v=22"><\/script>')}catch(e){}</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
 .hero h1{font:italic 400 clamp(40px,5.2vw,66px)/1.15 Fraunces,var(--cjk),serif;letter-spacing:-.02em;color:var(--blue);margin:0 0 20px}
@@ -46,7 +46,7 @@ body:not(.fan) .scrollcue{display:flex}
 .wmeta h3{font:500 20px/1.35 Satoshi,var(--cjk),sans-serif;margin:0 0 12px;letter-spacing:0}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font-size:13px;line-height:1;padding:7px 11px;border-radius:999px;background:var(--pill);color:var(--soft);white-space:nowrap}
-.ai{padding-top:100px;padding-bottom:60px;border-top:1px solid var(--line)}
+.ai{padding-top:100px;padding-bottom:60px}
 .steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 36px}
 .step{background:var(--card);border-radius:10px;padding:16px 20px;transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
 .step b{display:flex;align-items:center;gap:8px;font-size:18px;color:var(--blue)}
@@ -69,7 +69,7 @@ html[data-theme=light] #ocean{display:none}
 <body data-page="home">
 <div id="ocean" aria-hidden="true"></div>
 <nav class="top" aria-label="Main">
-  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="logo.png" alt="" width="40" height="40"><img class="fill" src="logo-fill.png?v=3" alt="" width="40" height="40"></a>
+  <a class="logo" href="./" aria-label="Ellie Lin, home"><img src="logo.png?v=2" alt="" width="40" height="40"><img class="fill" src="logo-fill.png?v=3" alt="" width="40" height="40"></a>
   <div class="links">
     <a href="#works">Work</a>
     <a href="about-me">About</a>
@@ -83,7 +83,7 @@ html[data-theme=light] #ocean{display:none}
   <h1 id="hi">Hey there, I’m Ellie!</h1>
   <p data-r style="--d:.5s">A <em>product designer</em> with a <em>project management</em> background.<br>
   I enjoy digging into messy problems, planning the path forward, and creating <em>research-backed</em> designs that put users first and meet <em>business goals</em>.</p>
-  <div class="scrollcue" data-r style="--d:.8s">Scroll to see my work<i></i></div>
+  <div class="scrollcue" data-r style="--d:.8s"><span>Scroll to see my work</span><i></i></div>
 </header>
 <section id="works" class="wrap">
   <h2 data-r>Selected Works</h2>
