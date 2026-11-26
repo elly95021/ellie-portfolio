@@ -41,15 +41,16 @@
     let fl = null, skipT = [];
     const skip = () => { skipT.forEach(clearTimeout); finish(); ov.style.transition = 'opacity .3s'; ov.style.opacity = 0; fl && (fl.style.transition = 'opacity .3s', fl.style.opacity = 0); setTimeout(() => { ov.remove(); fl && fl.remove(); document.documentElement.classList.remove('intro-hold'); }, 320); };
     const at = (ms, fn) => skipT.push(setTimeout(fn, ms));
-    if (introKind === 'a') {
+    {
+      const sp = document.body.dataset.page === 'home' ? 1 : .7;
       fl = document.createElement('div'); fl.id = 'intro-flower';
       fl.innerHTML = '<img class="o" src="logo.png" alt=""><img class="f" src="logo-fill.png?v=3" alt="">';
       document.body.append(ov, fl);
       const o = fl.querySelector('.o'); const t0 = performance.now();
-      const sweep = now => { const k = Math.min(1, (now - t0) / 750); const e = 1 - Math.pow(1 - k, 3); o.style.setProperty('--a', (e * 360) + 'deg'); if (k < 1) requestAnimationFrame(sweep); };
+      const sweep = now => { const k = Math.min(1, (now - t0) / (750 * sp)); const e = 1 - Math.pow(1 - k, 3); o.style.setProperty('--a', (e * 360) + 'deg'); if (k < 1) requestAnimationFrame(sweep); };
       requestAnimationFrame(sweep);
-      at(780, () => fl.classList.add('bloom'));
-      at(1250, () => {
+      at(780 * sp, () => fl.classList.add('bloom'));
+      at(1250 * sp, () => {
         const lg = $('.logo'); const r = lg && getComputedStyle(lg).display !== 'none' ? lg.getBoundingClientRect() : null;
         const cx = innerWidth / 2, cy = innerHeight / 2;
         fl.classList.add('fly');
@@ -57,36 +58,7 @@
         if (!r) fl.style.opacity = 0;
         finish(); lift(700);
       });
-      at(1900, () => { fl.style.opacity = 0; });
-    } else if (introKind === 'd') {
-      const txt = "Hi, I'm Ellie";
-      ov.innerHTML = '<p class="hello">' + [...txt].map((c, i) => c === ' ' ? ' ' : `<span style="animation-delay:${.1 + i * .05}s">${c}</span>`).join('') + '</p>';
-      fl = document.createElement('div'); fl.id = 'intro-flower'; fl.className = 'under';
-      fl.innerHTML = '<img class="o" src="logo.png" alt=""><img class="f" src="logo-fill.png?v=3" alt="">';
-      document.body.append(ov, fl);
-      const o = fl.querySelector('.o'); let t0 = null;
-      const sweep = now => { t0 = t0 || now; const k = Math.min(1, (now - t0) / 750); const e = 1 - Math.pow(1 - k, 3); o.style.setProperty('--a', (e * 360) + 'deg'); if (k < 1) requestAnimationFrame(sweep); };
-      at(250, () => requestAnimationFrame(sweep));
-      at(1050, () => fl.classList.add('bloom'));
-      at(1650, () => {
-        ov.classList.add('fade-text');
-        const lg = $('.logo'); const r = lg && getComputedStyle(lg).display !== 'none' ? lg.getBoundingClientRect() : null;
-        const b = fl.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2;
-        fl.classList.add('fly');
-        fl.style.transform = r ? `translate(${r.left + r.width / 2 - cx}px, ${r.top + r.height / 2 - cy}px) scale(${r.width / b.width})` : 'translate(0,-40vh) scale(.4)';
-        if (!r) fl.style.opacity = 0;
-        finish(); lift(750);
-      });
-      at(2350, () => { fl.style.opacity = 0; });
-    } else if (introKind === 'b') {
-      const txt = "Hi, I'm Ellie";
-      ov.innerHTML = '<p class="hello">' + [...txt].map((c, i) => c === ' ' ? ' ' : `<span style="animation-delay:${.1 + i * .05}s">${c}</span>`).join('') + '</p><img class="spin" src="logo-fill.png?v=3" alt="">';
-      document.body.append(ov);
-      at(1700, () => { finish(); lift(750); });
-    } else {
-      ov.innerHTML = '<svg class="waves" viewBox="0 0 1440 220" preserveAspectRatio="none"><path class="w1" d="M0 60 C 240 10 480 110 720 60 S 1200 10 1440 60 V0 H0Z"/><path class="w2" d="M0 40 C 260 100 520 0 780 50 S 1240 100 1440 40 V0 H0Z"/></svg>';
-      document.body.append(ov);
-      at(250, () => { finish(); lift(1150); });
+      at(1900 * sp, () => { fl.style.opacity = 0; });
     }
     document.documentElement.classList.add('intro-hold', 'intro-started');
     ov.addEventListener('click', skip); fl && fl.addEventListener('click', skip);
