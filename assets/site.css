@@ -128,11 +128,11 @@ nav.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center
 .stats .card{padding:20px}
 .stats .big,.card .big{display:block;font-size:28px;font-weight:700;line-height:1.4;color:var(--blue);margin-bottom:6px}
 .stats small{display:block;font-size:14px;color:#a7a4a4;line-height:1.5}
-.quote{display:flex;gap:24px;align-items:center;margin:28px 0}
+.quote{display:flex;gap:20px;align-items:center;margin:28px 0}
 .quote>div,.quote q{display:block}
 .quote q+q{margin-top:14px}
-.quote::before{content:"\201C";font:700 110px/0.8 Fraunces,var(--cjk),serif;color:#8a93a3;flex:none;margin-top:.32em;align-self:center}
-.quote q{quotes:none;font-weight:500;font-style:italic;color:var(--blue);line-height:1.7}
+.quote::before{content:"";flex:none;width:32px;height:20px;background:var(--qmark,rgba(205,228,254,.6));-webkit-mask:url(quote.svg?v=1) center/contain no-repeat;mask:url(quote.svg?v=1) center/contain no-repeat;align-self:center}
+.quote q{quotes:none;font-weight:700;font-style:italic;color:var(--blue);line-height:1.7}
 .quotes2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px;margin:24px 0}
 .quotes2 .quote{margin:0}
 figure{margin:28px 0}
@@ -428,3 +428,5 @@ html[lang=zh-Hant] .foot p{font-size:18px;letter-spacing:.06em}
 html[lang=zh-Hant] .persona{flex-basis:78%;padding:20px 24px;font-size:15.5px;grid-template-columns:180px minmax(0,1fr)}
 html[lang=zh-Hant] .persona h5{font-size:18px}
 html[lang=zh-Hant] .persona img{width:115px}
+html[data-theme=light]{--qmark:rgba(43,43,43,.35)}
+html[lang=zh-Hant] .persona{flex-basis:62%;max-width:780px}
