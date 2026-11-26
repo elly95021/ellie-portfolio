@@ -175,6 +175,14 @@
     }
   }
   const logo = $('.logo');
+  if (logo) {
+    const tip = document.createElement('div'); tip.className = 'logo-tip'; tip.setAttribute('aria-hidden', 'true');
+    tip.textContent = document.body.dataset.page === 'home' ? L('Click to make it bloom ✿') : L('Back home');
+    document.body.appendChild(tip);
+    const show = () => { const b = logo.getBoundingClientRect(); tip.style.left = b.left + 'px'; tip.style.top = (b.bottom + 10) + 'px'; tip.classList.add('on'); };
+    const hide = () => tip.classList.remove('on');
+    logo.addEventListener('mouseenter', show); logo.addEventListener('mouseleave', hide); logo.addEventListener('click', hide);
+  }
   if (logo && document.body.dataset.page === 'home') logo.addEventListener('click', e => { e.preventDefault(); const b = logo.getBoundingClientRect(); burst(b.left + 20, b.top + 20, 18); history.replaceState(null, '', location.pathname); lenis ? lenis.scrollTo(0, { duration: 1.4 }) : scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
   const fl = $$('.flowers button');
   fl.forEach(b => b.addEventListener('click', () => {
