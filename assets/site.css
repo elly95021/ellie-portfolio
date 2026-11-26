@@ -465,7 +465,7 @@ details.more>summary::after{content:"";width:7px;height:7px;border-right:1.5px s
 details.more[open]>summary::after{transform:rotate(-135deg)}
 details.more[open]>summary{margin-bottom:8px}
 @media(min-width:761px){.persona{flex-basis:66%;max-width:800px;padding:20px 24px;font-size:16px;grid-template-columns:180px minmax(0,1fr)}.persona h5{font-size:18px}.persona img{width:115px}html[lang=zh-Hant] .persona{font-size:15.5px;flex-basis:62%;max-width:780px}}
-.peek{position:fixed;left:0;top:0;z-index:90;pointer-events:none;padding:9px 16px;background:#eef1fb;color:#14161c;border:2px solid #14161c;box-shadow:4px 4px 0 #14161c;font:500 15px/1.2 ui-monospace,"SF Mono",Menlo,Consolas,var(--cjk),monospace;letter-spacing:.01em;white-space:nowrap;opacity:0;transition:opacity .18s}
+.peek{position:fixed;left:0;top:0;z-index:90;pointer-events:none;padding:9px 16px;border-radius:999px;background:rgba(34,36,42,.92);color:var(--ink);font:500 14px/1.2 Satoshi,var(--cjk),sans-serif;letter-spacing:.02em;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;transition:opacity .2s}
 .peek.on{opacity:1}
-html[data-theme=light] .peek{background:#fff;color:var(--ink);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+html[data-theme=light] .peek{background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(62,54,50,.12)}
 @media (pointer:coarse){.peek{display:none}}
