@@ -461,3 +461,10 @@ html[lang=zh-Hant] .foot>p:first-child{display:none}
 .client-fb .quote q{font-weight:500;font-size:19px;line-height:1.75}
 .client-fb .who{display:block;margin-top:14px;font-size:15px;color:var(--muted)}
 html[lang=zh-Hant] .client-fb .quote q{font-style:italic}
+.rs .card .t{display:block;margin-bottom:4px}.rs .card .t svg{width:20px;height:20px;vertical-align:-4px;margin-right:8px}.rs .card small{display:block;margin:0 0 10px;color:var(--muted);font-size:13px}
+details.more{margin-top:28px}
+details.more>summary{display:inline-flex;align-items:center;gap:8px;list-style:none;cursor:pointer;padding:9px 18px;border-radius:999px;background:var(--pill);font-size:15px;color:var(--ink)}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid;border-bottom:1.5px solid;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
+details.more[open]>summary::after{transform:rotate(-135deg)}
+details.more[open]>summary{margin-bottom:8px}
