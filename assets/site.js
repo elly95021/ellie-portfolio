@@ -58,6 +58,26 @@
         finish(); lift(700);
       });
       at(1900, () => { fl.style.opacity = 0; });
+    } else if (introKind === 'd') {
+      const txt = "Hi, I'm Ellie";
+      ov.innerHTML = '<p class="hello">' + [...txt].map((c, i) => c === ' ' ? ' ' : `<span style="animation-delay:${.1 + i * .05}s">${c}</span>`).join('') + '</p>';
+      fl = document.createElement('div'); fl.id = 'intro-flower'; fl.className = 'under';
+      fl.innerHTML = '<img class="o" src="logo.png" alt=""><img class="f" src="logo-fill.png?v=3" alt="">';
+      document.body.append(ov, fl);
+      const o = fl.querySelector('.o'); let t0 = null;
+      const sweep = now => { t0 = t0 || now; const k = Math.min(1, (now - t0) / 750); const e = 1 - Math.pow(1 - k, 3); o.style.setProperty('--a', (e * 360) + 'deg'); if (k < 1) requestAnimationFrame(sweep); };
+      at(250, () => requestAnimationFrame(sweep));
+      at(1050, () => fl.classList.add('bloom'));
+      at(1650, () => {
+        ov.classList.add('fade-text');
+        const lg = $('.logo'); const r = lg && getComputedStyle(lg).display !== 'none' ? lg.getBoundingClientRect() : null;
+        const b = fl.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+        fl.classList.add('fly');
+        fl.style.transform = r ? `translate(${r.left + r.width / 2 - cx}px, ${r.top + r.height / 2 - cy}px) scale(${r.width / b.width})` : 'translate(0,-40vh) scale(.4)';
+        if (!r) fl.style.opacity = 0;
+        finish(); lift(750);
+      });
+      at(2350, () => { fl.style.opacity = 0; });
     } else if (introKind === 'b') {
       const txt = "Hi, I'm Ellie";
       ov.innerHTML = '<p class="hello">' + [...txt].map((c, i) => c === ' ' ? ' ' : `<span style="animation-delay:${.1 + i * .05}s">${c}</span>`).join('') + '</p><img class="spin" src="logo-fill.png?v=3" alt="">';

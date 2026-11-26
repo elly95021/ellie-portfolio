@@ -379,3 +379,6 @@ html[data-intro]:not(.intro-started) body::after{content:"";position:fixed;inset
 #intro.intro-c::after{content:"";position:absolute;left:0;right:0;top:100%;height:30px;background:var(--bg)}
 html[data-theme=light] #intro-flower .o,html[data-theme=light] #intro .spin,html[data-theme=light] #intro-flower .f{filter:brightness(0) opacity(.8)}
 html[data-theme=light] #intro .waves .w1,html[data-theme=light] #intro .waves .w2{fill:rgba(0,0,0,.05)}
+#intro-flower.under{width:56px;height:56px;margin:-28px 0 0 -28px;top:calc(50% + 52px)}
+#intro.intro-d .hello{margin:0 0 70px;transition:opacity .3s}
+#intro.fade-text .hello{opacity:0}
