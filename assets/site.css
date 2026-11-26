@@ -499,3 +499,6 @@ html[data-theme=light] .meta img.logo-light{display:inline-block}
 .persona{align-content:start;align-items:start}
 .persona .tags-row{align-items:center;align-self:start}
 .persona .tags span{line-height:1.6}
+html[data-theme=light] .persona{background:var(--card);color:var(--ink)}
+html[data-theme=light] .persona .k,html[data-theme=light] .persona strong,html[data-theme=light] .persona h5{color:var(--ink)}
+html[data-theme=light] .persona .tags span{background:#e2ddda;color:var(--ink)}
