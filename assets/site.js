@@ -31,6 +31,48 @@
   const onScr = () => document.body.classList.toggle('scrolled', scrollY > innerHeight * 0.6);
   onScr(); addEventListener('scroll', onScr, { passive: true });
 
+  /* opening animation (preview with ?intro=a|b|c) */
+  const introKind = document.documentElement.dataset.intro;
+  if (introKind) {
+    const ov = document.createElement('div'); ov.id = 'intro'; ov.className = 'intro-' + introKind; ov.setAttribute('aria-hidden', 'true');
+    let finished = false;
+    const finish = () => { if (finished) return; finished = true; window.__introDone && window.__introDone(); };
+    const lift = (ms) => { ov.style.transition = `transform ${ms}ms cubic-bezier(.7,0,.25,1)`; ov.classList.add('up'); setTimeout(() => { ov.remove(); fl && fl.remove(); document.documentElement.classList.remove('intro-hold'); }, ms + 50); };
+    let fl = null, skipT = [];
+    const skip = () => { skipT.forEach(clearTimeout); finish(); ov.style.transition = 'opacity .3s'; ov.style.opacity = 0; fl && (fl.style.transition = 'opacity .3s', fl.style.opacity = 0); setTimeout(() => { ov.remove(); fl && fl.remove(); document.documentElement.classList.remove('intro-hold'); }, 320); };
+    const at = (ms, fn) => skipT.push(setTimeout(fn, ms));
+    if (introKind === 'a') {
+      fl = document.createElement('div'); fl.id = 'intro-flower';
+      fl.innerHTML = '<img class="o" src="logo.png" alt=""><img class="f" src="logo-fill.png?v=3" alt="">';
+      document.body.append(ov, fl);
+      const o = fl.querySelector('.o'); const t0 = performance.now();
+      const sweep = now => { const k = Math.min(1, (now - t0) / 750); const e = 1 - Math.pow(1 - k, 3); o.style.setProperty('--a', (e * 360) + 'deg'); if (k < 1) requestAnimationFrame(sweep); };
+      requestAnimationFrame(sweep);
+      at(780, () => fl.classList.add('bloom'));
+      at(1250, () => {
+        const lg = $('.logo'); const r = lg && getComputedStyle(lg).display !== 'none' ? lg.getBoundingClientRect() : null;
+        const cx = innerWidth / 2, cy = innerHeight / 2;
+        fl.classList.add('fly');
+        fl.style.transform = r ? `translate(${r.left + r.width / 2 - cx}px, ${r.top + r.height / 2 - cy}px) scale(${r.width / 96})` : 'translate(0,-40vh) scale(.4)';
+        if (!r) fl.style.opacity = 0;
+        finish(); lift(700);
+      });
+      at(1900, () => { fl.style.opacity = 0; });
+    } else if (introKind === 'b') {
+      const txt = "Hi, I'm Ellie";
+      ov.innerHTML = '<p class="hello">' + [...txt].map((c, i) => c === ' ' ? ' ' : `<span style="animation-delay:${.1 + i * .05}s">${c}</span>`).join('') + '</p><img class="spin" src="logo-fill.png?v=3" alt="">';
+      document.body.append(ov);
+      at(1700, () => { finish(); lift(750); });
+    } else {
+      ov.innerHTML = '<svg class="waves" viewBox="0 0 1440 220" preserveAspectRatio="none"><path class="w1" d="M0 60 C 240 10 480 110 720 60 S 1200 10 1440 60 V0 H0Z"/><path class="w2" d="M0 40 C 260 100 520 0 780 50 S 1240 100 1440 40 V0 H0Z"/></svg>';
+      document.body.append(ov);
+      at(250, () => { finish(); lift(1150); });
+    }
+    document.documentElement.classList.add('intro-hold', 'intro-started');
+    ov.addEventListener('click', skip); fl && fl.addEventListener('click', skip);
+    addEventListener('keydown', skip, { once: true });
+  }
+
   /* light / dark switch */
   const root = document.documentElement;
   const syncThemeBtn = () => $$('.theme').forEach(b => b.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'));
@@ -187,8 +229,8 @@
     const chars = $$('.ch', h);
     if (!reduce) {
       chars.forEach(c => { c.style.transform = 'translateY(10px)'; c.style.opacity = 0; c.style.filter = 'blur(10px)'; });
-      requestAnimationFrame(() => requestAnimationFrame(() => chars.forEach(c => { c.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease-out,filter .45s ease-out'; c.style.transform = ''; c.style.opacity = 1; c.style.filter = ''; })));
-      setTimeout(() => chars.forEach(c => { c.style.transition = 'transform .35s cubic-bezier(.3,1.5,.5,1)'; c.style.transitionDelay = '0s'; c.style.removeProperty('filter'); }), 750 + chars.length * 50);
+      (window.__introWait || Promise.resolve()).then(() => { requestAnimationFrame(() => requestAnimationFrame(() => chars.forEach(c => { c.style.transition = 'transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease-out,filter .45s ease-out'; c.style.transform = ''; c.style.opacity = 1; c.style.filter = ''; })));
+        setTimeout(() => chars.forEach(c => { c.style.transition = 'transform .35s cubic-bezier(.3,1.5,.5,1)'; c.style.transitionDelay = '0s'; c.style.removeProperty('filter'); }), 750 + chars.length * 50); });
       window.__onPointer((mx, my) => chars.forEach(c => { const b = c.getBoundingClientRect(), d = Math.hypot(b.left + b.width / 2 - mx, b.top + b.height / 2 - my); c.style.transform = d < 110 ? `translateY(${-(1 - d / 110) * 14}px)` : ''; }));
     }
   });
