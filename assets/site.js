@@ -6,6 +6,50 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const EMAIL = 'elly95021@gmail.com';
 
+
+  /* Chinese version (EN / 中 toggle) */
+  const ZH = window.__zh || null;
+  const L = (en) => (ZH && ZH.ui[en]) || en;
+  const units = root => {
+ const B=new Set(['P','H1','H2','H3','H4','H5','H6','LI','FIGCAPTION','SUMMARY','TD','TH','DIV','SECTION','HEADER','FOOTER','NAV','FIGURE','BLOCKQUOTE','BUTTON','LABEL','DD','DT','UL','OL','TABLE','TBODY','THEAD','TR','DETAILS','MAIN','ARTICLE','ASIDE','BODY']);
+ const sel=[...B].join(',');
+ const out=[];const seen=new Set();
+ const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
+ while((n=w.nextNode())){
+  if(!/[A-Za-z]/.test(n.nodeValue))continue;
+  const el=n.parentElement; if(!el||el.closest('script,style,svg,noscript,[data-noi18n]'))continue;
+  let u=el; while(u&&!B.has(u.tagName))u=u.parentElement;
+  if(!u)continue;
+  if(u.querySelector(sel)){
+    if(B.has(el.tagName)){ u=n; }
+    else { u=el; while(u.parentElement&&!B.has(u.parentElement.tagName))u=u.parentElement; }
+  }
+  if(seen.has(u))continue; seen.add(u); out.push(u);
+ }
+ return out;
+};
+  if (ZH) {
+    document.documentElement.lang = 'zh-Hant';
+    const norm = s => s.replace(/\s+/g, ' ').trim();
+    units(document.body).forEach(u => {
+      if (u.nodeType === 3) { const z = ZH.t[norm(u.nodeValue)]; if (z != null) u.nodeValue = u.nodeValue.replace(u.nodeValue.trim(), z); return; }
+      const z = ZH.t[norm(u.textContent)]; if (z == null) return;
+      const svgs = [...u.querySelectorAll('svg')], imgs = [...u.querySelectorAll('img')], links = [...u.querySelectorAll('a')];
+      u.innerHTML = z.replace(/\{\{SVG(\d+)\}\}/g, '<i data-svg="$1"></i>');
+      u.querySelectorAll('i[data-svg]').forEach(i => { const s = svgs[+i.dataset.svg]; s ? i.replaceWith(s) : i.remove(); });
+      const copy = (fresh, old) => fresh.forEach((el, i) => { const o = old[i]; if (o) [...o.attributes].forEach(a => { if (!el.hasAttribute(a.name)) el.setAttribute(a.name, a.value); }); });
+      copy([...u.querySelectorAll('img')], imgs); copy([...u.querySelectorAll('a')], links);
+    });
+    $$('[data-text]').forEach(b => { const z = ZH.t[norm(b.dataset.text)]; if (z) b.dataset.text = z; });
+    $$('[data-toc]').forEach(s => { const z = ZH.toc[s.dataset.toc]; if (z) s.dataset.toc = z; });
+    if (ZH.title[document.title]) document.title = ZH.title[document.title];
+  }
+  $$('.lang').forEach(b => {
+    b.textContent = ZH ? 'EN' : '中';
+    b.setAttribute('aria-label', ZH ? 'Switch to English' : '切換成中文');
+    b.addEventListener('click', () => { try { localStorage.setItem('lang', ZH ? 'en' : 'zh'); } catch (e) {} location.reload(); });
+  });
+
   /* smooth scroll */
   let lenis = null;
   if (!reduce && window.Lenis) lenis = new Lenis({ lerp: 0.09 });
@@ -67,7 +111,7 @@
 
   /* light / dark switch */
   const root = document.documentElement;
-  const syncThemeBtn = () => $$('.theme').forEach(b => b.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'));
+  const syncThemeBtn = () => $$('.theme').forEach(b => b.setAttribute('aria-label', L(root.dataset.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode')));
   syncThemeBtn();
   $$('.theme').forEach(b => b.addEventListener('click', () => {
     const light = root.dataset.theme !== 'light';
@@ -87,7 +131,7 @@
 
   /* cursor */
   const cur = document.createElement('div'), ring = document.createElement('div');
-  cur.className = 'cur'; ring.className = 'ring'; ring.innerHTML = '<span>View ↗</span>';
+  cur.className = 'cur'; ring.className = 'ring'; ring.innerHTML = '<span>' + L('View ↗') + '</span>';
   document.body.append(cur, ring);
   let mx = -100, my = -100, rx = -100, ry = -100;
   const hoverHooks = [];
@@ -143,7 +187,7 @@
   let tt;
   const say = msg => { toast.textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2400); };
   $$('[data-email]').forEach(b => b.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(EMAIL); say('Email copied: ' + EMAIL); }
+    try { await navigator.clipboard.writeText(EMAIL); say(L('Email copied: ') + EMAIL); }
     catch { location.href = 'mailto:' + EMAIL; }
   }));
 
@@ -198,8 +242,8 @@
   /* case study: contents sidebar */
   const tocSecs = $$('[data-toc]');
   if (tocSecs.length > 2) {
-    const toc = document.createElement('nav'); toc.className = 'toc'; toc.setAttribute('aria-label', 'Contents');
-    toc.innerHTML = '<div class="ticks" aria-hidden="true">' + tocSecs.map(() => '<i></i>').join('') + '</div><div class="panel"><span>Contents</span>' +
+    const toc = document.createElement('nav'); toc.className = 'toc'; toc.setAttribute('aria-label', L('Contents'));
+    toc.innerHTML = '<div class="ticks" aria-hidden="true">' + tocSecs.map(() => '<i></i>').join('') + '</div><div class="panel"><span>' + L('Contents') + '</span>' +
       tocSecs.map((s, i) => `<a href="#" data-i="${i}">${s.dataset.toc}</a>`).join('') + '</div>';
     document.body.appendChild(toc);
     const ticks = $$('.ticks i', toc), links = $$('.panel a', toc);

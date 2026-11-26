@@ -379,3 +379,14 @@ html[data-theme=light] #intro .waves .w1,html[data-theme=light] #intro .waves .w
 #intro-flower.under{width:56px;height:56px;margin:-28px 0 0 -28px;top:calc(50% + 52px)}
 #intro.intro-d .hello{margin:0 0 70px;transition:opacity .3s}
 #intro.fade-text .hello{opacity:0}
+
+/* language toggle + Chinese typography */
+.lang{display:grid;place-items:center;min-width:40px;height:40px;padding:0 10px;border:0;border-radius:999px;background:var(--pill);color:var(--ink);font:500 14px/1 Satoshi,system-ui,sans-serif;letter-spacing:.02em;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .25s}
+.lang:hover{background:rgba(205,228,254,.28)}
+html[data-theme=light] .lang:hover{background:rgba(0,0,0,.08)}
+@media(max-width:760px){.lang{min-width:34px;height:34px;font-size:13px}.nav-r{gap:8px}}
+html[lang=zh-Hant]{font-synthesis-style:none}
+html[lang=zh-Hant] body{letter-spacing:.03em}
+html[lang=zh-Hant] :is(p,li,figcaption){line-height:1.85}
+html[lang=zh-Hant] .hero em{font-weight:700;color:var(--ink)}
+@media(max-width:760px){.links{gap:22px}}
