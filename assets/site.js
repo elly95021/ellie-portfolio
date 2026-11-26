@@ -174,6 +174,7 @@
       if (p.life <= 0 || p.y > innerHeight + 60) { p.im.remove(); petals.splice(k, 1); }
     }
   }
+  $$('details.rq summary').forEach(su => su.dataset.tip = L('Click to view details'));
   const logo = $('.logo');
   if (logo) {
     const tip = document.createElement('div'); tip.className = 'logo-tip'; tip.setAttribute('aria-hidden', 'true');
