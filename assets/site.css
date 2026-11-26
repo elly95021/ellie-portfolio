@@ -416,7 +416,7 @@ html[lang=zh-Hant] .hero em{font-weight:700;color:var(--ink)}
 
 .logo-tip{position:fixed;z-index:70;padding:7px 12px;border-radius:999px;background:#22242a;color:var(--ink);font:500 13px/1 Satoshi,var(--cjk),sans-serif;letter-spacing:.02em;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .logo-tip.on{opacity:1;transform:none}
-@media(hover:none){.logo-tip{display:none}}
+
 html[data-theme=light] .logo-tip{background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 html[lang=zh-Hant] .hero p .bal{display:inline-block;text-wrap:balance}
 details.rq summary{position:relative}
