@@ -469,3 +469,4 @@ details.more[open]>summary{margin-bottom:8px}
 .peek.on{opacity:1}
 html[data-theme=light] .peek{background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(62,54,50,.12)}
 @media (pointer:coarse){.peek{display:none}}
+.persona .tags-row{grid-column:1/-1;margin-top:0;justify-content:flex-start}
