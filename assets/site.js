@@ -11,7 +11,7 @@
   const ZH = window.__zh || null;
   const L = (en) => (ZH && ZH.ui[en]) || en;
   const units = root => {
- const B=new Set(['P','H1','H2','H3','H4','H5','H6','LI','FIGCAPTION','SUMMARY','TD','TH','DIV','SECTION','HEADER','FOOTER','NAV','FIGURE','BLOCKQUOTE','BUTTON','LABEL','DD','DT','UL','OL','TABLE','TBODY','THEAD','TR','DETAILS','MAIN','ARTICLE','ASIDE','BODY']);
+ const B=new Set(['P','Q','H1','H2','H3','H4','H5','H6','LI','FIGCAPTION','SUMMARY','TD','TH','DIV','SECTION','HEADER','FOOTER','NAV','FIGURE','BLOCKQUOTE','BUTTON','LABEL','DD','DT','UL','OL','TABLE','TBODY','THEAD','TR','DETAILS','MAIN','ARTICLE','ASIDE','BODY']);
  const sel=[...B].join(',');
  const out=[];const seen=new Set();
  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
@@ -22,7 +22,7 @@
   if(!u)continue;
   if(u.querySelector(sel)){
     if(B.has(el.tagName)){ u=n; }
-    else { u=el; while(u.parentElement&&!B.has(u.parentElement.tagName))u=u.parentElement; }
+    else { u=el; while(u.parentElement&&!B.has(u.parentElement.tagName)&&!u.parentElement.querySelector(sel))u=u.parentElement; }
   }
   if(seen.has(u))continue; seen.add(u); out.push(u);
  }
@@ -33,7 +33,7 @@
     const norm = s => s.replace(/\s+/g, ' ').trim();
     units(document.body).forEach(u => {
       if (u.nodeType === 3) { const z = ZH.t[norm(u.nodeValue)]; if (z != null) u.nodeValue = u.nodeValue.replace(u.nodeValue.trim(), z); return; }
-      const z = ZH.t[norm(u.textContent)]; if (z == null) return;
+      let z = ZH.t[norm(u.textContent)]; if (z == null) return; if (u.tagName === 'Q') z = z.replace(/^<q>|<\/q>$/g, '');
       const svgs = [...u.querySelectorAll('svg')], imgs = [...u.querySelectorAll('img')], links = [...u.querySelectorAll('a')];
       u.innerHTML = z.replace(/\{\{SVG(\d+)\}\}/g, '<i data-svg="$1"></i>');
       u.querySelectorAll('i[data-svg]').forEach(i => { const s = svgs[+i.dataset.svg]; s ? i.replaceWith(s) : i.remove(); });
