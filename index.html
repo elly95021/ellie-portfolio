@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Oxygen+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=38">
+<link rel="stylesheet" href="assets/site.css?v=39">
 <script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}(function(){try{var force=new URLSearchParams(location.search).has('intro'),seen=sessionStorage.getItem('introSeen');if((force||!seen)&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.intro='a';sessionStorage.setItem('introSeen','1');window.__introWait=new Promise(function(r){window.__introDone=r})}}catch(e){}})();try{if(localStorage.getItem('lang')==='zh')document.write('<script src="assets/zh.js?v=19"><\/script>')}catch(e){}</script>
 <style>
 .hero{height:100vh;min-height:560px;text-align:center;padding-top:clamp(110px,20vh,190px);position:relative}
@@ -58,7 +58,7 @@ body:not(.fan) .scrollcue{display:flex}
 .big svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .big:hover svg{transform:translateX(14px) rotate(-45deg)}
 .big:hover .w{font-style:italic}
-@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:21px;margin-bottom:20px}.hero h1{font-size:34px}.hero p{font-size:15px;line-height:1.75;text-align:left}.big{font-size:36px;gap:12px}.big svg{width:30px;height:30px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
+@media(max-width:760px){.wgrid,.steps{grid-template-columns:minmax(0,1fr)}.wmeta h3{font-size:17px}#works h2,.ai h2{font-size:21px;margin-bottom:20px}.hero h1{font-size:34px;text-align:left}.hero p{font-size:15px;line-height:1.75;text-align:left}.big{font-size:36px;gap:12px}.big svg{width:30px;height:30px}.steps{gap:16px}.step p{font-size:16px;line-height:1.7}.step b{font-size:17px}.step small{font-size:14px}.ai{padding-top:70px}.aboutlink{padding-top:70px}}
 #ocean{position:absolute;left:0;right:0;top:0;height:100vh;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:screen;-webkit-mask:linear-gradient(#000 0%,transparent 80%);mask:linear-gradient(#000 0%,transparent 80%)}
 body[data-page=home] nav.top{background:none;transition:background .3s}
 body[data-page=home].scrolled nav.top{background:linear-gradient(var(--bg) 30%,transparent)}
