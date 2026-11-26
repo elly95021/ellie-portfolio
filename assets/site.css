@@ -447,3 +447,4 @@ html[lang=zh-Hant] .persona{flex-basis:62%;max-width:780px}
  .m-ico{display:flex;align-items:center;gap:20px;margin-left:auto}
  .m-ico a,.m-ico button{display:grid;place-items:center;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
 }
+html[lang=zh-Hant] .foot>p:first-child{display:none}
