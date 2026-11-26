@@ -425,11 +425,7 @@ details.rq:not([open]) summary:hover::before{opacity:1;transform:none}
 html[data-theme=light] details.rq summary::before{background:#fff;color:var(--ink);box-shadow:0 6px 20px rgba(62,54,50,.08)}
 @media(hover:none){details.rq summary::before{display:none}}
 html[lang=zh-Hant] .foot p{font-size:18px;letter-spacing:.06em}
-html[lang=zh-Hant] .persona{flex-basis:78%;padding:20px 24px;font-size:15.5px;grid-template-columns:180px minmax(0,1fr)}
-html[lang=zh-Hant] .persona h5{font-size:18px}
-html[lang=zh-Hant] .persona img{width:115px}
 html[data-theme=light]{--qmark:rgba(62,54,50,.35)}
-html[lang=zh-Hant] .persona{flex-basis:62%;max-width:780px}
 
 .m-ico{display:none}
 @media(max-width:760px){
@@ -468,3 +464,4 @@ details.more>summary::-webkit-details-marker{display:none}
 details.more>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid;border-bottom:1.5px solid;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
 details.more[open]>summary::after{transform:rotate(-135deg)}
 details.more[open]>summary{margin-bottom:8px}
+@media(min-width:761px){.persona{flex-basis:66%;max-width:800px;padding:20px 24px;font-size:16px;grid-template-columns:180px minmax(0,1fr)}.persona h5{font-size:18px}.persona img{width:115px}html[lang=zh-Hant] .persona{font-size:15.5px;flex-basis:62%;max-width:780px}}
