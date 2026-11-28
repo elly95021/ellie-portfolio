@@ -181,7 +181,13 @@
     }
   }
   { const bar = $('nav.top .links');
-    if (bar) { const chk = () => bar.classList.toggle('at-end', innerWidth <= 760 && scrollY + innerHeight >= document.documentElement.scrollHeight - 4); addEventListener('scroll', chk, { passive: true }); addEventListener('resize', chk); chk(); } }
+    if (bar) { const chk = () => bar.classList.toggle('at-end', innerWidth <= 760 && scrollY + innerHeight >= document.documentElement.scrollHeight - 4); addEventListener('scroll', chk, { passive: true }); addEventListener('resize', chk); chk();
+      /* iOS 26 Safari can drift bottom:0 fixed bars up the screen while scrolling; pin to the visual viewport from the top instead */
+      const vv = window.visualViewport;
+      if (vv) { let raf = 0; const pin = () => { raf = 0; if (innerWidth > 760) { bar.style.top = ''; bar.style.bottom = ''; return; } bar.style.bottom = 'auto'; bar.style.top = Math.round(vv.offsetTop + vv.height - bar.offsetHeight) + 'px'; };
+        const q = () => { if (!raf) raf = requestAnimationFrame(pin); };
+        vv.addEventListener('resize', q); vv.addEventListener('scroll', q); addEventListener('scroll', q, { passive: true }); addEventListener('resize', q); pin(); }
+    } }
   $$('details.rq summary').forEach(su => su.dataset.tip = L('Click to view details'));
   const logo = $('.logo');
   if (logo) {
